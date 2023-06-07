@@ -249,6 +249,16 @@ namespace MAD___PF_Hotel
         {
             this.Close();
         }
+
+        private void txtboxFirstNameOp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtboxEmailOp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
  }
 
