@@ -18,3 +18,32 @@ C:\Users\artur\source\repos\MAD - PF Hotel\MAD - PF Hotel\obj\Debug\MAD___PF_Hot
 C:\Users\artur\source\repos\MAD - PF Hotel\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.ReportForSalesForm.resources
 C:\Users\artur\source\repos\MAD - PF Hotel\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.OperatorForm.resources
 C:\Users\artur\source\repos\MAD - PF Hotel\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.AddOperator.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\bin\Debug\MAD - PF Hotel.exe.config
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\bin\Debug\MAD - PF Hotel.exe
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\bin\Debug\MAD - PF Hotel.pdb
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD - PF Hotel.csproj.AssemblyReference.cache
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD - PF Hotel.csproj.SuggestedBindingRedirects.cache
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.AdminForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.AddOperator.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.AddClientForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.OperatorForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.ReportForSalesForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.ReservationSystemForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.AddHotelForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Log_in.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Properties.Resources.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD - PF Hotel.csproj.GenerateResource.cache
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD - PF Hotel.csproj.CoreCompileInputs.cache
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD - PF Hotel.exe
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD - PF Hotel.pdb
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.AddRoomForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.UpdateClient.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.UpdateOperator.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.UpdateHotel.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.UpdateRooms.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.CheckInForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.CheckOutForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.ClientHistorialForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.ExtendReservationForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.ReportHotelOccupancy.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.SalesReportForm.resources

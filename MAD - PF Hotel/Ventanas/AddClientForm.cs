@@ -15,6 +15,7 @@ namespace MAD___PF_Hotel
     public partial class AddClientForm : Form
     {
         Conexion sqlConexion = new Conexion();
+        UserModel current_session = new UserModel();
         public AddClientForm()
         {
             InitializeComponent();
@@ -30,7 +31,8 @@ namespace MAD___PF_Hotel
             ClientModel new_client = new ClientModel();
             AddressModel new_address = new AddressModel();
             PhoneModel new_phone = new PhoneModel();
-
+          
+            new_client.Full_Name = txtboxFN.Text + " " + txtboxLNO.Text + " " + txtboxLNT.Text;
             new_client.Names = txtboxFN.Text;
             new_client.Last_Name_One = txtboxLNO.Text;
             new_client.Last_Name_Two = txtboxLNT.Text;
@@ -54,7 +56,7 @@ namespace MAD___PF_Hotel
             }
             else
             {
-                int resultHotel = sqlConexion.AddClient(new_client, new_address, new_phone);
+                int resultHotel = sqlConexion.SetClient(new_client, new_address, new_phone, current_session);
 
                 if (resultHotel == 1)
                 {
@@ -70,8 +72,7 @@ namespace MAD___PF_Hotel
 
         private bool ClientValidation(ClientModel aux_model)
         {
-            if (aux_model.Names == null || aux_model.Last_Name_One == null || 
-                aux_model.Last_Name_Two == null || aux_model.RFC == null || aux_model.Email == null ||
+            if (aux_model.Names == null || aux_model.RFC == null || aux_model.Email == null ||
                 aux_model.Date_Birth == null || aux_model.Marital_Status ==  null || aux_model.Reference == null)
             {
                 return true;
@@ -83,7 +84,8 @@ namespace MAD___PF_Hotel
         }
         private bool AddressValidation(AddressModel aux_model)
         {
-            if (aux_model.Street_Name == null || aux_model.House_Number == null || aux_model.Suburb_Name == null || aux_model.Zip_Code == null)
+            if (aux_model.Street_Name == null || aux_model.House_Number == null || 
+                aux_model.Suburb_Name == null || aux_model.Zip_Code == null)
             {
                 return true;
             }
@@ -103,6 +105,12 @@ namespace MAD___PF_Hotel
             {
                 return false;
             }
+        }
+
+        public void Get_Current_Session(string aux_user)
+        {
+            current_session = sqlConexion.GetUserData(aux_user, null);
+            return;
         }
     }
 }

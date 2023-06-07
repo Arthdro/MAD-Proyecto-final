@@ -8,9 +8,10 @@ namespace MAD___PF_Hotel.Models
 {
     internal class AddressModel
     {
-        public string Street_Name { get; set; }
-        public string House_Number { get; set; }
-        public string Suburb_Name { get; set; }
-        public string Zip_Code { get; set; }
+        public int Id_Address { get; set; }
+        public string Street_Name { get; set; } = "";
+        public string House_Number { get; set; } = "";
+        public string Suburb_Name { get; set; } = "";
+        public string Zip_Code { get; set; } = "";
     }
 }

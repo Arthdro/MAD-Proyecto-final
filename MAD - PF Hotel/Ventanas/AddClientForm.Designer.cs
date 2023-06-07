@@ -29,18 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtboxFN = new System.Windows.Forms.TextBox();
-            this.btnAddClient = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtboxLNO = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtboxLNT = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtboxRFC = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtboxMaritalStatus = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtboxEmailClient = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtboxReferenceClient = new System.Windows.Forms.TextBox();
+            this.dtpDateBirthC = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtboxCellPhoneClient = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtboxHousePhoneClient = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,15 +47,19 @@
             this.txtboxHouseNClient = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtboxStreetClient = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtboxMaritalStatus = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtboxRFC = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtboxLNT = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtboxLNO = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtboxFN = new System.Windows.Forms.TextBox();
+            this.btnAddClient = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtboxCellPhoneClient = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dtpDateBirthC = new System.Windows.Forms.DateTimePicker();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtboxReferenceClient = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtboxEmailClient = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,116 +99,78 @@
             this.panel1.Size = new System.Drawing.Size(896, 449);
             this.panel1.TabIndex = 61;
             // 
-            // label1
+            // label15
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 28);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "First name(s):";
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(124, 339);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(63, 28);
+            this.label15.TabIndex = 95;
+            this.label15.Text = "Email:";
             // 
-            // txtboxFN
+            // txtboxEmailClient
             // 
-            this.txtboxFN.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxFN.Location = new System.Drawing.Point(200, 26);
-            this.txtboxFN.Name = "txtboxFN";
-            this.txtboxFN.Size = new System.Drawing.Size(245, 34);
-            this.txtboxFN.TabIndex = 61;
+            this.txtboxEmailClient.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxEmailClient.Location = new System.Drawing.Point(200, 336);
+            this.txtboxEmailClient.Name = "txtboxEmailClient";
+            this.txtboxEmailClient.Size = new System.Drawing.Size(245, 34);
+            this.txtboxEmailClient.TabIndex = 94;
             // 
-            // btnAddClient
+            // label14
             // 
-            this.btnAddClient.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.btnAddClient.Location = new System.Drawing.Point(328, 543);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(134, 40);
-            this.btnAddClient.TabIndex = 62;
-            this.btnAddClient.Text = "Add client";
-            this.btnAddClient.UseVisualStyleBackColor = true;
-            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(499, 339);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(100, 28);
+            this.label14.TabIndex = 93;
+            this.label14.Text = "Reference:";
             // 
-            // button1
+            // txtboxReferenceClient
             // 
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.button1.Location = new System.Drawing.Point(520, 543);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 40);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtboxReferenceClient.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxReferenceClient.Location = new System.Drawing.Point(612, 336);
+            this.txtboxReferenceClient.Name = "txtboxReferenceClient";
+            this.txtboxReferenceClient.Size = new System.Drawing.Size(245, 34);
+            this.txtboxReferenceClient.TabIndex = 92;
             // 
-            // label2
+            // dtpDateBirthC
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 28);
-            this.label2.TabIndex = 70;
-            this.label2.Text = "First last name:";
+            this.dtpDateBirthC.Font = new System.Drawing.Font("Nirmala UI", 12F);
+            this.dtpDateBirthC.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateBirthC.Location = new System.Drawing.Point(200, 283);
+            this.dtpDateBirthC.Name = "dtpDateBirthC";
+            this.dtpDateBirthC.Size = new System.Drawing.Size(245, 34);
+            this.dtpDateBirthC.TabIndex = 91;
             // 
-            // txtboxLNO
+            // label13
             // 
-            this.txtboxLNO.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxLNO.Location = new System.Drawing.Point(200, 76);
-            this.txtboxLNO.Name = "txtboxLNO";
-            this.txtboxLNO.Size = new System.Drawing.Size(245, 34);
-            this.txtboxLNO.TabIndex = 69;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(59, 288);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(128, 28);
+            this.label13.TabIndex = 90;
+            this.label13.Text = "Date of birth:";
             // 
-            // label3
+            // label12
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 132);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 28);
-            this.label3.TabIndex = 72;
-            this.label3.Text = "Second last name:";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(499, 286);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(104, 28);
+            this.label12.TabIndex = 88;
+            this.label12.Text = "Cellphone:";
             // 
-            // txtboxLNT
+            // txtboxCellPhoneClient
             // 
-            this.txtboxLNT.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxLNT.Location = new System.Drawing.Point(200, 129);
-            this.txtboxLNT.Name = "txtboxLNT";
-            this.txtboxLNT.Size = new System.Drawing.Size(245, 34);
-            this.txtboxLNT.TabIndex = 71;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(137, 184);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 28);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "RFC:";
-            // 
-            // txtboxRFC
-            // 
-            this.txtboxRFC.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxRFC.Location = new System.Drawing.Point(200, 181);
-            this.txtboxRFC.Name = "txtboxRFC";
-            this.txtboxRFC.Size = new System.Drawing.Size(245, 34);
-            this.txtboxRFC.TabIndex = 73;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 235);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 28);
-            this.label5.TabIndex = 76;
-            this.label5.Text = "Marital Status:";
-            // 
-            // txtboxMaritalStatus
-            // 
-            this.txtboxMaritalStatus.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxMaritalStatus.Location = new System.Drawing.Point(200, 232);
-            this.txtboxMaritalStatus.Name = "txtboxMaritalStatus";
-            this.txtboxMaritalStatus.Size = new System.Drawing.Size(245, 34);
-            this.txtboxMaritalStatus.TabIndex = 75;
+            this.txtboxCellPhoneClient.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxCellPhoneClient.Location = new System.Drawing.Point(612, 283);
+            this.txtboxCellPhoneClient.Name = "txtboxCellPhoneClient";
+            this.txtboxCellPhoneClient.Size = new System.Drawing.Size(245, 34);
+            this.txtboxCellPhoneClient.TabIndex = 87;
             // 
             // label6
             // 
@@ -300,6 +262,117 @@
             this.txtboxStreetClient.Size = new System.Drawing.Size(245, 34);
             this.txtboxStreetClient.TabIndex = 77;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(51, 235);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 28);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Marital Status:";
+            // 
+            // txtboxMaritalStatus
+            // 
+            this.txtboxMaritalStatus.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxMaritalStatus.Location = new System.Drawing.Point(200, 232);
+            this.txtboxMaritalStatus.Name = "txtboxMaritalStatus";
+            this.txtboxMaritalStatus.Size = new System.Drawing.Size(245, 34);
+            this.txtboxMaritalStatus.TabIndex = 75;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(137, 184);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 28);
+            this.label4.TabIndex = 74;
+            this.label4.Text = "RFC:";
+            // 
+            // txtboxRFC
+            // 
+            this.txtboxRFC.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxRFC.Location = new System.Drawing.Point(200, 181);
+            this.txtboxRFC.Name = "txtboxRFC";
+            this.txtboxRFC.Size = new System.Drawing.Size(245, 34);
+            this.txtboxRFC.TabIndex = 73;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 28);
+            this.label3.TabIndex = 72;
+            this.label3.Text = "Second last name:";
+            // 
+            // txtboxLNT
+            // 
+            this.txtboxLNT.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxLNT.Location = new System.Drawing.Point(200, 129);
+            this.txtboxLNT.Name = "txtboxLNT";
+            this.txtboxLNT.Size = new System.Drawing.Size(245, 34);
+            this.txtboxLNT.TabIndex = 71;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(46, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(141, 28);
+            this.label2.TabIndex = 70;
+            this.label2.Text = "First last name:";
+            // 
+            // txtboxLNO
+            // 
+            this.txtboxLNO.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxLNO.Location = new System.Drawing.Point(200, 76);
+            this.txtboxLNO.Name = "txtboxLNO";
+            this.txtboxLNO.Size = new System.Drawing.Size(245, 34);
+            this.txtboxLNO.TabIndex = 69;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(61, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 28);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "First name(s):";
+            // 
+            // txtboxFN
+            // 
+            this.txtboxFN.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxFN.Location = new System.Drawing.Point(200, 26);
+            this.txtboxFN.Name = "txtboxFN";
+            this.txtboxFN.Size = new System.Drawing.Size(245, 34);
+            this.txtboxFN.TabIndex = 61;
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.Font = new System.Drawing.Font("Nirmala UI", 12F);
+            this.btnAddClient.Location = new System.Drawing.Point(328, 543);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(134, 40);
+            this.btnAddClient.TabIndex = 62;
+            this.btnAddClient.Text = "Add client";
+            this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Nirmala UI", 12F);
+            this.button1.Location = new System.Drawing.Point(520, 543);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 40);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -309,79 +382,6 @@
             this.label11.Size = new System.Drawing.Size(160, 28);
             this.label11.TabIndex = 64;
             this.label11.Text = "Add a new client:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(499, 286);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 28);
-            this.label12.TabIndex = 88;
-            this.label12.Text = "Cellphone:";
-            // 
-            // txtboxCellPhoneClient
-            // 
-            this.txtboxCellPhoneClient.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxCellPhoneClient.Location = new System.Drawing.Point(612, 283);
-            this.txtboxCellPhoneClient.Name = "txtboxCellPhoneClient";
-            this.txtboxCellPhoneClient.Size = new System.Drawing.Size(245, 34);
-            this.txtboxCellPhoneClient.TabIndex = 87;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(59, 288);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 28);
-            this.label13.TabIndex = 90;
-            this.label13.Text = "Date of birth:";
-            // 
-            // dtpDateBirthC
-            // 
-            this.dtpDateBirthC.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.dtpDateBirthC.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateBirthC.Location = new System.Drawing.Point(200, 283);
-            this.dtpDateBirthC.Name = "dtpDateBirthC";
-            this.dtpDateBirthC.Size = new System.Drawing.Size(245, 34);
-            this.dtpDateBirthC.TabIndex = 91;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(499, 339);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 28);
-            this.label14.TabIndex = 93;
-            this.label14.Text = "Reference:";
-            // 
-            // txtboxReferenceClient
-            // 
-            this.txtboxReferenceClient.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxReferenceClient.Location = new System.Drawing.Point(612, 336);
-            this.txtboxReferenceClient.Name = "txtboxReferenceClient";
-            this.txtboxReferenceClient.Size = new System.Drawing.Size(245, 34);
-            this.txtboxReferenceClient.TabIndex = 92;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(124, 339);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 28);
-            this.label15.TabIndex = 95;
-            this.label15.Text = "Email:";
-            // 
-            // txtboxEmailClient
-            // 
-            this.txtboxEmailClient.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxEmailClient.Location = new System.Drawing.Point(200, 336);
-            this.txtboxEmailClient.Name = "txtboxEmailClient";
-            this.txtboxEmailClient.Size = new System.Drawing.Size(245, 34);
-            this.txtboxEmailClient.TabIndex = 94;
             // 
             // AddClientForm
             // 
@@ -393,6 +393,7 @@
             this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.panel1);
             this.Name = "AddClientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add client information";
             this.Load += new System.EventHandler(this.AddClientForm_Load);
             this.panel1.ResumeLayout(false);

@@ -61,24 +61,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs">
+    <Compile Include="Models\AmenityRoomModel.cs" />
+    <Compile Include="Models\CheckInformationModel.cs" />
+    <Compile Include="Ventanas\CheckInForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
+    <Compile Include="Ventanas\CheckInForm.Designer.cs">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\CheckOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\CheckOutForm.Designer.cs">
+      <DependentUpon>CheckOutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\ClientHistorialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\ClientHistorialForm.Designer.cs">
+      <DependentUpon>ClientHistorialForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\ExtendReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\ExtendReservationForm.Designer.cs">
+      <DependentUpon>ExtendReservationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\ReportHotelOccupancy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\ReportHotelOccupancy.Designer.cs">
+      <DependentUpon>ReportHotelOccupancy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\SalesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\SalesReportForm.Designer.cs">
+      <DependentUpon>SalesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\UpdateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\UpdateClient.Designer.cs">
+      <DependentUpon>UpdateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexionDB\Conexion.cs" />
-    <Compile Include="AddOperator.cs">
+    <Compile Include="Ventanas\AddOperator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddOperator.Designer.cs">
+    <Compile Include="Ventanas\AddOperator.Designer.cs">
       <DependentUpon>AddOperator.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\AmenityModel.cs" />
     <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\HotelModel.cs" />
     <Compile Include="Models\PhoneModel.cs" />
-    <Compile Include="Models\RoomTypeModel.cs" />
+    <Compile Include="Models\ReservationModel.cs" />
+    <Compile Include="Models\RoomModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Ventanas\AddClientForm.cs">
       <SubType>Form</SubType>
@@ -86,75 +133,108 @@
     <Compile Include="Ventanas\AddClientForm.Designer.cs">
       <DependentUpon>AddClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OperatorForm.cs">
+    <Compile Include="Ventanas\OperatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OperatorForm.Designer.cs">
+    <Compile Include="Ventanas\OperatorForm.Designer.cs">
       <DependentUpon>OperatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportForSalesForm.cs">
+    <Compile Include="Ventanas\ReportForSalesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportForSalesForm.Designer.cs">
+    <Compile Include="Ventanas\ReportForSalesForm.Designer.cs">
       <DependentUpon>ReportForSalesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReservationSystemForm.cs">
+    <Compile Include="Ventanas\ReservationSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReservationSystemForm.Designer.cs">
+    <Compile Include="Ventanas\ReservationSystemForm.Designer.cs">
       <DependentUpon>ReservationSystemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddTypeOfRoomForm.cs">
+    <Compile Include="Ventanas\AddRoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTypeOfRoomForm.Designer.cs">
-      <DependentUpon>AddTypeOfRoomForm.cs</DependentUpon>
+    <Compile Include="Ventanas\AddRoomForm.Designer.cs">
+      <DependentUpon>AddRoomForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddHotelForm.cs">
+    <Compile Include="Ventanas\AddHotelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddHotelForm.Designer.cs">
+    <Compile Include="Ventanas\AddHotelForm.Designer.cs">
       <DependentUpon>AddHotelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Log_in.cs">
+    <Compile Include="Ventanas\Log_in.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Log_in.Designer.cs">
+    <Compile Include="Ventanas\Log_in.Designer.cs">
       <DependentUpon>Log_in.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportForHotelOcupForm.cs">
+    <Compile Include="Ventanas\UpdateHotel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportForHotelOcupForm.Designer.cs">
-      <DependentUpon>ReportForHotelOcupForm.cs</DependentUpon>
+    <Compile Include="Ventanas\UpdateHotel.Designer.cs">
+      <DependentUpon>UpdateHotel.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminForm.resx">
+    <Compile Include="Ventanas\UpdateOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\UpdateOperator.Designer.cs">
+      <DependentUpon>UpdateOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\UpdateRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\UpdateRooms.Designer.cs">
+      <DependentUpon>UpdateRooms.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ventanas\CheckInForm.resx">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\CheckOutForm.resx">
+      <DependentUpon>CheckOutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\ClientHistorialForm.resx">
+      <DependentUpon>ClientHistorialForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\ExtendReservationForm.resx">
+      <DependentUpon>ExtendReservationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\ReportHotelOccupancy.resx">
+      <DependentUpon>ReportHotelOccupancy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\SalesReportForm.resx">
+      <DependentUpon>SalesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\UpdateClient.resx">
+      <DependentUpon>UpdateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddOperator.resx">
+    <EmbeddedResource Include="Ventanas\AddOperator.resx">
       <DependentUpon>AddOperator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\AddClientForm.resx">
       <DependentUpon>AddClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OperatorForm.resx">
+    <EmbeddedResource Include="Ventanas\OperatorForm.resx">
       <DependentUpon>OperatorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportForSalesForm.resx">
+    <EmbeddedResource Include="Ventanas\ReportForSalesForm.resx">
       <DependentUpon>ReportForSalesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReservationSystemForm.resx">
+    <EmbeddedResource Include="Ventanas\ReservationSystemForm.resx">
       <DependentUpon>ReservationSystemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddTypeOfRoomForm.resx">
-      <DependentUpon>AddTypeOfRoomForm.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas\AddRoomForm.resx">
+      <DependentUpon>AddRoomForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddHotelForm.resx">
+    <EmbeddedResource Include="Ventanas\AddHotelForm.resx">
       <DependentUpon>AddHotelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Log_in.resx">
+    <EmbeddedResource Include="Ventanas\Log_in.resx">
       <DependentUpon>Log_in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -166,8 +246,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReportForHotelOcupForm.resx">
-      <DependentUpon>ReportForHotelOcupForm.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas\UpdateHotel.resx">
+      <DependentUpon>UpdateHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\UpdateOperator.resx">
+      <DependentUpon>UpdateOperator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\UpdateRooms.resx">
+      <DependentUpon>UpdateRooms.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
