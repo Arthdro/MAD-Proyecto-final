@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -24,8 +25,7 @@ namespace MAD___PF_Hotel
             cboxTypeOfUser.ValueMember = "Value";
 
             cboxTypeOfUser.Items.Add(new { Text = "Operator", Value = "0" });
-            cboxTypeOfUser.Items.Add(new { Text = "Administrator", Value = "1" });
-
+            cboxTypeOfUser.Items.Add(new { Text = "Administrator", Value = "1" });      
         }
 
         public class ComboboxItem
@@ -49,7 +49,7 @@ namespace MAD___PF_Hotel
             AddressModel new_address = new AddressModel();
             PhoneModel new_phone = new PhoneModel();
 
-            string algo = null;
+            //string algo = null;
 
             new_user.Full_Name = txtboxFirstNameOp.Text + " " + txtboxLastName1.Text + " " + txtboxLastName2.Text;
             new_user.Names = txtboxFirstNameOp.Text;
@@ -69,25 +69,57 @@ namespace MAD___PF_Hotel
             new_phone.Phone_Number = txtboxHomePhoneOp.Text;
             new_phone.Cellphone_Number = txtboxCellPhoneOp.Text;
 
-
-
             bool resultUser = sqlConexion.SetUser(new_user, new_address, new_phone, current_session);
-
-            if (resultUser)
+            if (UserValidation(new_user) || AddressValidation(new_address) || PhoneValidation(new_phone))
             {
-                this.Hide();
-                MessageBox.Show("The operator fue agregado a la base de datos.");
+                MessageBox.Show("Llene todos los campos.");
+            }
+            else if(!PasswordValidation(new_user.User_Password))
+            {
+                MessageBox.Show("La contraseña debe tener al menos 8 carácteres, mayúsculas, minúsculas y números.");
+            }
+            else if (!EmailValidation(new_user.Email))
+            {
+                MessageBox.Show("La contraseña debe tener al menos 8 carácteres, mayúsculas, minúsculas y números.");
             }
             else
             {
-                MessageBox.Show("The email or password are invalid");
+                if (resultUser)
+                {
+                    this.Hide();
+                    MessageBox.Show("The operator fue agregado a la base de datos.");
+                }
+                else
+                {
+                    MessageBox.Show("The email or password are invalid");
+                }
             }
+            
         }
 
         public void Get_Current_Session(string aux_user)
         {
             current_session = sqlConexion.GetUserData(aux_user, null);
             return;
+        }
+
+        public bool PasswordValidation(string aux_user)
+        {
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasLowerChar = new Regex(@"[a-z]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinimum8Chars = new Regex(@".{8,}");
+
+            bool isValidated = hasNumber.IsMatch(aux_user) && hasUpperChar.IsMatch(aux_user) && hasMinimum8Chars.IsMatch(aux_user) && hasLowerChar.IsMatch(aux_user);
+            return isValidated;
+        }
+
+        public bool EmailValidation(string aux_user)
+        {
+            var emailFormat = new Regex(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z");
+
+            bool isValidated = emailFormat.IsMatch(aux_user);
+            return isValidated;
         }
         private int Blank_Space_Validation(string aux)
         {
@@ -115,10 +147,11 @@ namespace MAD___PF_Hotel
                 return 2;
             }
         }
-        private bool ClientValidation(ClientModel aux_model)
+        private bool UserValidation(UserModel aux_model)
         {
-            if (aux_model.Names == null || aux_model.RFC == null || aux_model.Email == null ||
-                aux_model.Date_Birth == null || aux_model.Marital_Status == null || aux_model.Reference == null)
+            if (aux_model.Full_Name == null || aux_model.Names == null || aux_model.Last_Name_One == null ||
+                aux_model.Last_Name_Two == null || aux_model.Date_Birth == null || aux_model.Payroll_No == 0 || 
+                aux_model.Email == null || aux_model.User_Password == null)
             {
                 return true;
             }
@@ -150,6 +183,71 @@ namespace MAD___PF_Hotel
             {
                 return false;
             }
+        }
+
+        private void txtboxFirstNameOp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <=64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtboxHomePhoneOp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtboxLastName1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtboxLastName2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtboxPayrollNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtboxCellPhoneOp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void btnCancelOp_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
  }

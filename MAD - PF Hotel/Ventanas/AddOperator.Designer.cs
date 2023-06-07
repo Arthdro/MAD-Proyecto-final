@@ -72,6 +72,7 @@
             this.btnCancelOp.TabIndex = 79;
             this.btnCancelOp.Text = "Cancel";
             this.btnCancelOp.UseVisualStyleBackColor = true;
+            this.btnCancelOp.Click += new System.EventHandler(this.btnCancelOp_Click);
             // 
             // btnAddOp
             // 
@@ -247,6 +248,7 @@
             this.txtboxLastName1.Name = "txtboxLastName1";
             this.txtboxLastName1.Size = new System.Drawing.Size(245, 34);
             this.txtboxLastName1.TabIndex = 107;
+            this.txtboxLastName1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxLastName1_KeyPress);
             // 
             // datetpDOB
             // 
@@ -335,6 +337,7 @@
             this.txtboxCellPhoneOp.Name = "txtboxCellPhoneOp";
             this.txtboxCellPhoneOp.Size = new System.Drawing.Size(245, 34);
             this.txtboxCellPhoneOp.TabIndex = 98;
+            this.txtboxCellPhoneOp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxCellPhoneOp_KeyPress);
             // 
             // txtboxHomePhoneOp
             // 
@@ -343,6 +346,7 @@
             this.txtboxHomePhoneOp.Name = "txtboxHomePhoneOp";
             this.txtboxHomePhoneOp.Size = new System.Drawing.Size(245, 34);
             this.txtboxHomePhoneOp.TabIndex = 97;
+            this.txtboxHomePhoneOp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHomePhoneOp_KeyPress);
             // 
             // txtboxEmailOp
             // 
@@ -359,6 +363,7 @@
             this.txtboxPayrollNum.Name = "txtboxPayrollNum";
             this.txtboxPayrollNum.Size = new System.Drawing.Size(245, 34);
             this.txtboxPayrollNum.TabIndex = 95;
+            this.txtboxPayrollNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxPayrollNum_KeyPress);
             // 
             // txtboxLastName2
             // 
@@ -367,6 +372,7 @@
             this.txtboxLastName2.Name = "txtboxLastName2";
             this.txtboxLastName2.Size = new System.Drawing.Size(245, 34);
             this.txtboxLastName2.TabIndex = 94;
+            this.txtboxLastName2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxLastName2_KeyPress);
             // 
             // txtboxFirstNameOp
             // 
@@ -375,6 +381,7 @@
             this.txtboxFirstNameOp.Name = "txtboxFirstNameOp";
             this.txtboxFirstNameOp.Size = new System.Drawing.Size(245, 34);
             this.txtboxFirstNameOp.TabIndex = 93;
+            this.txtboxFirstNameOp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxFirstNameOp_KeyPress);
             // 
             // label9
             // 
