@@ -84,7 +84,10 @@ namespace MAD___PF_Hotel
         }
 
         private void btnSubCR_Click(object sender, EventArgs e)
-        {           
+        {
+            ClientHistorialForm new_clientHistorial = new ClientHistorialForm();
+            openChildSR(new_clientHistorial);
+            new_clientHistorial.Get_Current_Session(current_session.Email);
             hideSubmenu();
         }
         private void btnSubHOR_Click(object sender, EventArgs e)
@@ -193,20 +196,20 @@ namespace MAD___PF_Hotel
             current_session = sqlConexion.GetUserData(aux_user, null);
             return;
         }
-
-        private void btnCheckIn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnCheckOut_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancelReservation_Click(object sender, EventArgs e)
         {
+             CancelReservation cancel_reservation = new CancelReservation();
+            openChildSR(cancel_reservation);
+            cancel_reservation.Get_Current_Session(current_session.Email);
+            hideSubmenu();
+        }
 
+        private void btnSMAddS_Click(object sender, EventArgs e)
+        {
+            AddServicetoHotel add_service = new AddServicetoHotel();
+            openChildSR(add_service);
+            add_service.Get_Current_Session(current_session.Email);
+            hideSubmenu();
         }
     }
 }

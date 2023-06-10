@@ -132,5 +132,13 @@ namespace MAD___PF_Hotel
             extendReserv.Get_Current_Session(current_session.Email);
             hideSubmenu();
         }
+
+        private void btnSubMenuSells_Click(object sender, EventArgs e)
+        {
+            SetServiceReservForm new_window = new SetServiceReservForm();
+            openChildSR(new_window);
+            new_window.Get_Current_Session(current_session.Email);
+            hideSubmenu();
+        }
     }
 }

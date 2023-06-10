@@ -33,58 +33,6 @@ namespace MAD___PF_Hotel
 
         }
 
-        private void btnAddHotel_Click(object sender, EventArgs e)
-        {
-            HotelModel new_hotel = new HotelModel();
-            AddressModel new_address = new AddressModel();
-            LocationModel new_location = new LocationModel();
-            AmenityModel new_amenity = new AmenityModel();
-
-            new_hotel.Hotel_Name = txtboxHotelName.Text;            
-            new_hotel.Number_Rooms = Blank_Space_Validation(txtboxNumberOfRooms.Text);
-            new_hotel.Number_Floors = Blank_Space_Validation(txtboxNumberOfFloors.Text);
-            new_hotel.Begin_Operations = dtpBeginOperations.Value;
-
-            new_address.Street_Name = txtboxHotelStreet.Text;
-            new_address.House_Number = txtboxHotelNumber.Text;
-            new_address.Suburb_Name = txtboxHotelSuburb.Text;
-            new_address.Zip_Code = txtboxHotelZipCode.Text;
-
-            new_location.ID_Country = Blank_Space((string)cBoxCountry.SelectedValue);
-            new_location.ID_State = Blank_Space((string)cBoxState.SelectedValue);
-            new_location.ID_City = Blank_Space((string)cBoxCity.SelectedValue);
-
-            new_amenity.Gym = ValidateCheckedBox(checkGym);
-            new_amenity.Wifi = ValidateCheckedBox(checkWiFi);
-            new_amenity.Room_Service = ValidateCheckedBox(checkRoomServ);
-            new_amenity.Event_Room = ValidateCheckedBox(checkEventRoom);
-            new_amenity.Swimming_Pool = ValidateCheckedBox(checkSwimPool);
-            new_amenity.Massage = ValidateCheckedBox(checkMassage);
-            new_amenity.Restaurant = ValidateCheckedBox(checkRestaurant);
-            new_amenity.Taxi_Service = ValidateCheckedBox(checkTaxiService);
-
-
-            if (Blank_Space_Validation(new_hotel) || Blank_Space_Validation(new_address) || Blank_Space_Validation(new_location))
-            {
-                MessageBox.Show("Please, fill all the text box from the form.");
-            }
-            else
-            {
-                bool resultHotel = sqlConexion.SetHotel(new_hotel, new_address, new_location, new_amenity, current_session);
-
-                if (resultHotel)
-                {
-                    this.Hide();
-                    MessageBox.Show("The operator fue agregado a la base de datos.");
-                }
-                else
-                {
-                    MessageBox.Show("The email or password are invalid");
-                }
-            }
-        }
-
-
         private bool Blank_Space_Validation(HotelModel aux_model)
         {
             if (aux_model.Hotel_Name == null || aux_model.Number_Floors == 0 || aux_model.Number_Rooms == 0 || aux_model.Begin_Operations == null)
@@ -144,46 +92,6 @@ namespace MAD___PF_Hotel
                 return int.Parse(aux);
             }
         }
-        private void cBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //int index = 0;
-            int index = cBoxCountry.SelectedIndex;
-            if (index == 0)
-            {
-                cBoxState.Enabled = false;
-                cBoxCity.Enabled = false;
-                return;
-            }
-            else
-            {
-                string selectedValue = (string)cBoxCountry.SelectedValue;
-                cBoxState.DataSource = sqlConexion.FillStatesBox(int.Parse(selectedValue) );
-                cBoxState.DisplayMember = "STATE_NAME";
-                cBoxState.ValueMember = "ID_STATE";
-                cBoxState.Enabled = true;
-            }
-            return;
-        }
-
-        private void cBoxState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //int index = 0;
-            int index = cBoxState.SelectedIndex;
-            if (index == 0)
-            {
-                cBoxCity.Enabled = false;
-                return;
-            }
-            else
-            {
-                string selectedValue = (string)cBoxState.SelectedValue;               
-                cBoxCity.DataSource = sqlConexion.FillCitiesBox(int.Parse(selectedValue));
-                cBoxCity.DisplayMember = "FULL_CITY_NAME";
-                cBoxCity.ValueMember = "ID_CITY";
-                cBoxCity.Enabled = true;
-            }
-            return;
-        }
 
         private byte ValidateCheckedBox(CheckBox aux)
         {
@@ -203,16 +111,67 @@ namespace MAD___PF_Hotel
             return;
         }
 
-        private void txtboxHotelName_TextChanged(object sender, EventArgs e)
+        private void btnAddHotel_Click(object sender, EventArgs e)
         {
+            HotelModel new_hotel = new HotelModel();
+            AddressModel new_address = new AddressModel();
+            LocationModel new_location = new LocationModel();
+            AmenityModel new_amenity = new AmenityModel();
 
+            new_hotel.Hotel_Name = txtboxHotelName.Text;
+            new_hotel.Number_Rooms = Blank_Space_Validation(txtboxNumberOfRooms.Text);
+            new_hotel.Number_Floors = Blank_Space_Validation(txtboxNumberOfFloors.Text);
+            new_hotel.Begin_Operations = dtpBeginOperations.Value;
+
+            new_address.Street_Name = txtboxHotelStreet.Text;
+            new_address.House_Number = txtboxHotelNumber.Text;
+            new_address.Suburb_Name = txtboxHotelSuburb.Text;
+            new_address.Zip_Code = txtboxHotelZipCode.Text;
+
+            new_location.ID_Country = Blank_Space((string)cBoxCountry.SelectedValue);
+            new_location.ID_State = Blank_Space((string)cBoxState.SelectedValue);
+            new_location.ID_City = Blank_Space((string)cBoxCity.SelectedValue);
+
+            new_amenity.Gym = ValidateCheckedBox(checkGym);
+            new_amenity.Wifi = ValidateCheckedBox(checkWiFi);
+            new_amenity.Room_Service = ValidateCheckedBox(checkRoomServ);
+            new_amenity.Event_Room = ValidateCheckedBox(checkEventRoom);
+            new_amenity.Swimming_Pool = ValidateCheckedBox(checkSwimPool);
+            new_amenity.Massage = ValidateCheckedBox(checkMassage);
+            new_amenity.Restaurant = ValidateCheckedBox(checkRestaurant);
+            new_amenity.Taxi_Service = ValidateCheckedBox(checkTaxiService);
+
+
+            if (Blank_Space_Validation(new_hotel) || Blank_Space_Validation(new_address) || Blank_Space_Validation(new_location))
+            {
+                MessageBox.Show("Please, fill all the text box from the form.");
+            }
+            else
+            {
+                bool resultHotel = sqlConexion.SetHotel(new_hotel, new_address, new_location, new_amenity, current_session);
+
+                if (resultHotel)
+                {
+                    this.Hide();
+                    MessageBox.Show("The operator fue agregado a la base de datos.");
+                }
+                else
+                {
+                    MessageBox.Show("The email or password are invalid");
+                }
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void txtboxHotelName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Formato no permitido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -220,9 +179,10 @@ namespace MAD___PF_Hotel
 
         private void txtboxHotelStreet_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 47) || (e.KeyChar >= 57 && e.KeyChar <= 64) ||
+                (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Formato no permitido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -230,9 +190,10 @@ namespace MAD___PF_Hotel
 
         private void txtboxHotelNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 47) || (e.KeyChar >= 57 && e.KeyChar <= 64) ||
+                (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Formato no permitido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -240,9 +201,10 @@ namespace MAD___PF_Hotel
 
         private void txtboxHotelSuburb_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 47) || (e.KeyChar >= 57 && e.KeyChar <= 64) ||
+                (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Formato no permitido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -276,6 +238,47 @@ namespace MAD___PF_Hotel
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void cBoxCountry_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            //int index = 0;
+            int index = cBoxCountry.SelectedIndex;
+            if (index == 0)
+            {
+                cBoxState.Enabled = false;
+                cBoxCity.Enabled = false;
+                return;
+            }
+            else
+            {
+                string selectedValue = (string)cBoxCountry.SelectedValue;
+                cBoxState.DataSource = sqlConexion.FillStatesBox(int.Parse(selectedValue));
+                cBoxState.DisplayMember = "STATE_NAME";
+                cBoxState.ValueMember = "ID_STATE";
+                cBoxState.Enabled = true;
+            }
+            return;
+        }
+
+        private void cBoxState_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            //int index = 0;
+            int index = cBoxState.SelectedIndex;
+            if (index == 0)
+            {
+                cBoxCity.Enabled = false;
+                return;
+            }
+            else
+            {
+                string selectedValue = (string)cBoxState.SelectedValue;
+                cBoxCity.DataSource = sqlConexion.FillCitiesBox(int.Parse(selectedValue));
+                cBoxCity.DisplayMember = "FULL_CITY_NAME";
+                cBoxCity.ValueMember = "ID_CITY";
+                cBoxCity.Enabled = true;
+            }
+            return;
         }
     }
 }

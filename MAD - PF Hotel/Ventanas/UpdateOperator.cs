@@ -293,5 +293,17 @@ namespace MAD___PF_Hotel.Ventanas
                 return;
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (sqlConexion.DeleteHotel(updated_user.Id_User, current_session) == 1)
+            {
+                MessageBox.Show("El hotel fue borrado.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo completar la acción.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

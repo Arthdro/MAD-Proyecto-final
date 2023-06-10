@@ -63,6 +63,15 @@
   <ItemGroup>
     <Compile Include="Models\AmenityRoomModel.cs" />
     <Compile Include="Models\CheckInformationModel.cs" />
+    <Compile Include="Models\ClientHistorialModel.cs" />
+    <Compile Include="Models\SellModel.cs" />
+    <Compile Include="Models\ServiceModel.cs" />
+    <Compile Include="Ventanas\CancelReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\CancelReservation.Designer.cs">
+      <DependentUpon>CancelReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\CheckInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +96,12 @@
     <Compile Include="Ventanas\ExtendReservationForm.Designer.cs">
       <DependentUpon>ExtendReservationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\AddHotelService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\AddHotelService.Designer.cs">
+      <DependentUpon>AddHotelService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\ReportHotelOccupancy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +113,18 @@
     </Compile>
     <Compile Include="Ventanas\SalesReportForm.Designer.cs">
       <DependentUpon>SalesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\AddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\AddService.Designer.cs">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\SetServiceReservForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\SetServiceReservForm.Designer.cs">
+      <DependentUpon>SetServiceReservForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\UpdateClient.cs">
       <SubType>Form</SubType>
@@ -189,6 +216,12 @@
     <Compile Include="Ventanas\UpdateRooms.Designer.cs">
       <DependentUpon>UpdateRooms.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ventanas\AddHotelService.resx">
+      <DependentUpon>AddHotelService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\CancelReservation.resx">
+      <DependentUpon>CancelReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +239,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\SalesReportForm.resx">
       <DependentUpon>SalesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\AddService.resx">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\SetServiceReservForm.resx">
+      <DependentUpon>SetServiceReservForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\UpdateClient.resx">
       <DependentUpon>UpdateClient.cs</DependentUpon>

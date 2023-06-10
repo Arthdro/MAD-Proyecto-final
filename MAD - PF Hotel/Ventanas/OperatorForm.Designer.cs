@@ -30,6 +30,8 @@
         {
             this.pnlMainMenu = new System.Windows.Forms.Panel();
             this.pnlSubMenuReservation = new System.Windows.Forms.Panel();
+            this.btnSubMenuSells = new System.Windows.Forms.Button();
+            this.btnSubMenuExtention = new System.Windows.Forms.Button();
             this.btnSubMenuCheckout = new System.Windows.Forms.Button();
             this.btnSubMenuSearchR = new System.Windows.Forms.Button();
             this.btnSubMenuMakeR = new System.Windows.Forms.Button();
@@ -40,7 +42,6 @@
             this.btnooOpenSubMenuClient = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlOperatorSystemChild = new System.Windows.Forms.Panel();
-            this.btnSubMenuExtention = new System.Windows.Forms.Button();
             this.pnlMainMenu.SuspendLayout();
             this.pnlSubMenuReservation.SuspendLayout();
             this.pnlSubMenuClient.SuspendLayout();
@@ -58,12 +59,13 @@
             this.pnlMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMainMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMainMenu.Name = "pnlMainMenu";
-            this.pnlMainMenu.Size = new System.Drawing.Size(200, 653);
+            this.pnlMainMenu.Size = new System.Drawing.Size(200, 808);
             this.pnlMainMenu.TabIndex = 1;
             // 
             // pnlSubMenuReservation
             // 
             this.pnlSubMenuReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.pnlSubMenuReservation.Controls.Add(this.btnSubMenuSells);
             this.pnlSubMenuReservation.Controls.Add(this.btnSubMenuExtention);
             this.pnlSubMenuReservation.Controls.Add(this.btnSubMenuCheckout);
             this.pnlSubMenuReservation.Controls.Add(this.btnSubMenuSearchR);
@@ -71,8 +73,40 @@
             this.pnlSubMenuReservation.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuReservation.Location = new System.Drawing.Point(0, 319);
             this.pnlSubMenuReservation.Name = "pnlSubMenuReservation";
-            this.pnlSubMenuReservation.Size = new System.Drawing.Size(200, 164);
+            this.pnlSubMenuReservation.Size = new System.Drawing.Size(200, 204);
             this.pnlSubMenuReservation.TabIndex = 5;
+            // 
+            // btnSubMenuSells
+            // 
+            this.btnSubMenuSells.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubMenuSells.FlatAppearance.BorderSize = 0;
+            this.btnSubMenuSells.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubMenuSells.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubMenuSells.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSubMenuSells.Location = new System.Drawing.Point(0, 160);
+            this.btnSubMenuSells.Name = "btnSubMenuSells";
+            this.btnSubMenuSells.Size = new System.Drawing.Size(200, 40);
+            this.btnSubMenuSells.TabIndex = 4;
+            this.btnSubMenuSells.Text = "Sell";
+            this.btnSubMenuSells.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubMenuSells.UseVisualStyleBackColor = true;
+            this.btnSubMenuSells.Click += new System.EventHandler(this.btnSubMenuSells_Click);
+            // 
+            // btnSubMenuExtention
+            // 
+            this.btnSubMenuExtention.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubMenuExtention.FlatAppearance.BorderSize = 0;
+            this.btnSubMenuExtention.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubMenuExtention.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubMenuExtention.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSubMenuExtention.Location = new System.Drawing.Point(0, 120);
+            this.btnSubMenuExtention.Name = "btnSubMenuExtention";
+            this.btnSubMenuExtention.Size = new System.Drawing.Size(200, 40);
+            this.btnSubMenuExtention.TabIndex = 3;
+            this.btnSubMenuExtention.Text = "Extend reserv.";
+            this.btnSubMenuExtention.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubMenuExtention.UseVisualStyleBackColor = true;
+            this.btnSubMenuExtention.Click += new System.EventHandler(this.btnSubMenuExtention_Click);
             // 
             // btnSubMenuCheckout
             // 
@@ -219,30 +253,14 @@
             this.pnlOperatorSystemChild.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOperatorSystemChild.Location = new System.Drawing.Point(200, 0);
             this.pnlOperatorSystemChild.Name = "pnlOperatorSystemChild";
-            this.pnlOperatorSystemChild.Size = new System.Drawing.Size(982, 653);
+            this.pnlOperatorSystemChild.Size = new System.Drawing.Size(1117, 808);
             this.pnlOperatorSystemChild.TabIndex = 2;
-            // 
-            // btnSubMenuExtention
-            // 
-            this.btnSubMenuExtention.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSubMenuExtention.FlatAppearance.BorderSize = 0;
-            this.btnSubMenuExtention.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubMenuExtention.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubMenuExtention.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSubMenuExtention.Location = new System.Drawing.Point(0, 120);
-            this.btnSubMenuExtention.Name = "btnSubMenuExtention";
-            this.btnSubMenuExtention.Size = new System.Drawing.Size(200, 40);
-            this.btnSubMenuExtention.TabIndex = 3;
-            this.btnSubMenuExtention.Text = "Extend reserv.";
-            this.btnSubMenuExtention.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubMenuExtention.UseVisualStyleBackColor = true;
-            this.btnSubMenuExtention.Click += new System.EventHandler(this.btnSubMenuExtention_Click);
             // 
             // OperatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.ClientSize = new System.Drawing.Size(1317, 808);
             this.Controls.Add(this.pnlOperatorSystemChild);
             this.Controls.Add(this.pnlMainMenu);
             this.Name = "OperatorForm";
@@ -271,5 +289,6 @@
         private System.Windows.Forms.Button btnSubMenuMakeR;
         private System.Windows.Forms.Button btnSubMenuCheckout;
         private System.Windows.Forms.Button btnSubMenuExtention;
+        private System.Windows.Forms.Button btnSubMenuSells;
     }
 }

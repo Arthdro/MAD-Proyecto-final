@@ -39,14 +39,13 @@
             this.pnlMainMenu = new System.Windows.Forms.Panel();
             this.pnlSubMenuReservation = new System.Windows.Forms.Panel();
             this.btnCancelReservation = new System.Windows.Forms.Button();
-            this.btnCheckOut = new System.Windows.Forms.Button();
-            this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnReservations = new System.Windows.Forms.Button();
             this.pnlSubMenuEmployee = new System.Windows.Forms.Panel();
             this.btnSMEditEmployee = new System.Windows.Forms.Button();
             this.btnSMAddEmployee = new System.Windows.Forms.Button();
             this.btnEmployeeManagment = new System.Windows.Forms.Button();
             this.pnlSubMenuHotelM = new System.Windows.Forms.Panel();
+            this.btnSMAddS = new System.Windows.Forms.Button();
             this.btnSMAddToR = new System.Windows.Forms.Button();
             this.btnSubUpdateHotel = new System.Windows.Forms.Button();
             this.btnSubAddHotel = new System.Windows.Forms.Button();
@@ -63,7 +62,7 @@
             this.pnlSRChild.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSRChild.Location = new System.Drawing.Point(200, 0);
             this.pnlSRChild.Name = "pnlSRChild";
-            this.pnlSRChild.Size = new System.Drawing.Size(982, 653);
+            this.pnlSRChild.Size = new System.Drawing.Size(1117, 808);
             this.pnlSRChild.TabIndex = 1;
             this.pnlSRChild.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSRChild_Paint);
             // 
@@ -187,18 +186,16 @@
             this.pnlMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMainMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMainMenu.Name = "pnlMainMenu";
-            this.pnlMainMenu.Size = new System.Drawing.Size(200, 653);
+            this.pnlMainMenu.Size = new System.Drawing.Size(200, 808);
             this.pnlMainMenu.TabIndex = 0;
             // 
             // pnlSubMenuReservation
             // 
             this.pnlSubMenuReservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.pnlSubMenuReservation.Controls.Add(this.btnCancelReservation);
-            this.pnlSubMenuReservation.Controls.Add(this.btnCheckOut);
-            this.pnlSubMenuReservation.Controls.Add(this.btnCheckIn);
             this.pnlSubMenuReservation.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuReservation.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.pnlSubMenuReservation.Location = new System.Drawing.Point(0, 761);
+            this.pnlSubMenuReservation.Location = new System.Drawing.Point(0, 795);
             this.pnlSubMenuReservation.Name = "pnlSubMenuReservation";
             this.pnlSubMenuReservation.Size = new System.Drawing.Size(179, 152);
             this.pnlSubMenuReservation.TabIndex = 9;
@@ -209,47 +206,15 @@
             this.btnCancelReservation.FlatAppearance.BorderSize = 0;
             this.btnCancelReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelReservation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelReservation.Location = new System.Drawing.Point(0, 85);
+            this.btnCancelReservation.Location = new System.Drawing.Point(0, 0);
             this.btnCancelReservation.Name = "btnCancelReservation";
             this.btnCancelReservation.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnCancelReservation.Size = new System.Drawing.Size(179, 33);
+            this.btnCancelReservation.Size = new System.Drawing.Size(179, 74);
             this.btnCancelReservation.TabIndex = 3;
             this.btnCancelReservation.Text = "Cancel Reservation";
             this.btnCancelReservation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelReservation.UseVisualStyleBackColor = true;
             this.btnCancelReservation.Click += new System.EventHandler(this.btnCancelReservation_Click);
-            // 
-            // btnCheckOut
-            // 
-            this.btnCheckOut.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCheckOut.FlatAppearance.BorderSize = 0;
-            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCheckOut.Location = new System.Drawing.Point(0, 45);
-            this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnCheckOut.Size = new System.Drawing.Size(179, 40);
-            this.btnCheckOut.TabIndex = 2;
-            this.btnCheckOut.Text = "Check Out";
-            this.btnCheckOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckOut.UseVisualStyleBackColor = true;
-            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
-            // 
-            // btnCheckIn
-            // 
-            this.btnCheckIn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCheckIn.FlatAppearance.BorderSize = 0;
-            this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCheckIn.Location = new System.Drawing.Point(0, 0);
-            this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnCheckIn.Size = new System.Drawing.Size(179, 45);
-            this.btnCheckIn.TabIndex = 1;
-            this.btnCheckIn.Text = "Check In";
-            this.btnCheckIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckIn.UseVisualStyleBackColor = true;
-            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // btnReservations
             // 
@@ -258,7 +223,7 @@
             this.btnReservations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReservations.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.btnReservations.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReservations.Location = new System.Drawing.Point(0, 719);
+            this.btnReservations.Location = new System.Drawing.Point(0, 753);
             this.btnReservations.Name = "btnReservations";
             this.btnReservations.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReservations.Size = new System.Drawing.Size(179, 42);
@@ -275,7 +240,7 @@
             this.pnlSubMenuEmployee.Controls.Add(this.btnSMAddEmployee);
             this.pnlSubMenuEmployee.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuEmployee.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.pnlSubMenuEmployee.Location = new System.Drawing.Point(0, 575);
+            this.pnlSubMenuEmployee.Location = new System.Drawing.Point(0, 609);
             this.pnlSubMenuEmployee.Name = "pnlSubMenuEmployee";
             this.pnlSubMenuEmployee.Size = new System.Drawing.Size(179, 144);
             this.pnlSubMenuEmployee.TabIndex = 7;
@@ -319,7 +284,7 @@
             this.btnEmployeeManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployeeManagment.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.btnEmployeeManagment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEmployeeManagment.Location = new System.Drawing.Point(0, 509);
+            this.btnEmployeeManagment.Location = new System.Drawing.Point(0, 543);
             this.btnEmployeeManagment.Name = "btnEmployeeManagment";
             this.btnEmployeeManagment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmployeeManagment.Size = new System.Drawing.Size(179, 66);
@@ -332,6 +297,7 @@
             // pnlSubMenuHotelM
             // 
             this.pnlSubMenuHotelM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.pnlSubMenuHotelM.Controls.Add(this.btnSMAddS);
             this.pnlSubMenuHotelM.Controls.Add(this.btnSMAddToR);
             this.pnlSubMenuHotelM.Controls.Add(this.btnSubUpdateHotel);
             this.pnlSubMenuHotelM.Controls.Add(this.btnSubAddHotel);
@@ -339,8 +305,24 @@
             this.pnlSubMenuHotelM.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.pnlSubMenuHotelM.Location = new System.Drawing.Point(0, 397);
             this.pnlSubMenuHotelM.Name = "pnlSubMenuHotelM";
-            this.pnlSubMenuHotelM.Size = new System.Drawing.Size(179, 112);
+            this.pnlSubMenuHotelM.Size = new System.Drawing.Size(179, 146);
             this.pnlSubMenuHotelM.TabIndex = 5;
+            // 
+            // btnSMAddS
+            // 
+            this.btnSMAddS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSMAddS.FlatAppearance.BorderSize = 0;
+            this.btnSMAddS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSMAddS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSMAddS.Location = new System.Drawing.Point(0, 105);
+            this.btnSMAddS.Name = "btnSMAddS";
+            this.btnSMAddS.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnSMAddS.Size = new System.Drawing.Size(179, 35);
+            this.btnSMAddS.TabIndex = 5;
+            this.btnSMAddS.Text = "Add Service";
+            this.btnSMAddS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSMAddS.UseVisualStyleBackColor = true;
+            this.btnSMAddS.Click += new System.EventHandler(this.btnSMAddS_Click);
             // 
             // btnSMAddToR
             // 
@@ -395,7 +377,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.ClientSize = new System.Drawing.Size(1317, 808);
             this.Controls.Add(this.pnlSRChild);
             this.Controls.Add(this.pnlMainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -429,12 +411,11 @@
         private System.Windows.Forms.Button btnSMAddEmployee;
         private System.Windows.Forms.Button btnEmployeeManagment;
         private System.Windows.Forms.Panel pnlSubMenuReservation;
-        private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnReservations;
         private System.Windows.Forms.Button btnCancelReservation;
-        private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Button btnSMEditEmployee;
         private System.Windows.Forms.Button btnSMAddToR;
         private System.Windows.Forms.Button btnSubUpdateHotel;
+        private System.Windows.Forms.Button btnSMAddS;
     }
 }

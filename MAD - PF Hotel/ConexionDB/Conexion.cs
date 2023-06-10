@@ -129,6 +129,35 @@ namespace MAD___PF_Hotel.ConexionDB
             }
         }
 
+        public bool SetService(int? id_service, string service_n, string service_d, float? service_price, int? id_hotel, UserModel current_session)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd_u = new SqlCommand("spSetService", con);
+                cmd_u.CommandType = CommandType.StoredProcedure;
+                cmd_u.Parameters.AddWithValue("@p_current_user", current_session.Id_User);
+                cmd_u.Parameters.AddWithValue("@p_id_service", id_service);
+                cmd_u.Parameters.AddWithValue("@p_service_n", service_n);
+                cmd_u.Parameters.AddWithValue("@p_service_d", service_d);
+                cmd_u.Parameters.AddWithValue("@p_service_price", service_price);
+                cmd_u.Parameters.AddWithValue("@p_id_hotel", id_hotel);
+
+                SqlDataReader dr = cmd_u.ExecuteReader();
+                return true;
+            }
+            catch (SqlException e)
+            { 
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public bool SetHotel(HotelModel added_Hotel, AddressModel added_address, LocationModel added_location, AmenityModel added_amenity, UserModel current_session)
         {
             try
@@ -234,6 +263,61 @@ namespace MAD___PF_Hotel.ConexionDB
             return 1;
         }
 
+        public int DeleteHotel(int variable, UserModel current_session)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd_c = new SqlCommand("spDeleteHotel", con);
+                cmd_c.CommandType = CommandType.StoredProcedure;
+                cmd_c.Parameters.AddWithValue("@p_id_user", current_session.Id_User);
+                cmd_c.Parameters.AddWithValue("@p_id_hotel", variable);
+
+                SqlDataReader dr = cmd_c.ExecuteReader();
+
+                    return 1;             
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public int DeleteClient(int variable, UserModel current_session)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd_c = new SqlCommand("spDeleteClient", con);
+                cmd_c.CommandType = CommandType.StoredProcedure;
+                cmd_c.Parameters.AddWithValue("@p_id_user", current_session.Id_User);
+                cmd_c.Parameters.AddWithValue("@p_id_client", variable);
+
+                SqlDataReader dr = cmd_c.ExecuteReader();
+
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
         public int SetReservation(ReservationModel added_reservation, UserModel current_user)
         {
             try
@@ -253,10 +337,12 @@ namespace MAD___PF_Hotel.ConexionDB
                 cmd_c.Parameters.AddWithValue("@p_check_in", added_reservation.Check_In);
                 cmd_c.Parameters.AddWithValue("@p_check_out", added_reservation.Check_Out);
                 cmd_c.Parameters.AddWithValue("@p_room_number", added_reservation.Room_Number);
+                cmd_c.Parameters.AddWithValue("@p_people_quantity", added_reservation.People_Quantity);
                 cmd_c.Parameters.AddWithValue("@p_subtotal", added_reservation.Subtotal);
                 cmd_c.Parameters.AddWithValue("@p_iva_cost", added_reservation.IVA);
                 cmd_c.Parameters.AddWithValue("@p_total_amount", added_reservation.Total_Amount);
                 cmd_c.Parameters.AddWithValue("@p_upfront_pay", added_reservation.UpFront_Pay);
+                cmd_c.Parameters.AddWithValue("@p_payment_type", added_reservation.Type_Payment);
 
                 SqlDataReader dr = cmd_c.ExecuteReader();
 
@@ -309,6 +395,117 @@ namespace MAD___PF_Hotel.ConexionDB
             }
             return 0;
         }
+
+        public int GetHotelLastRoom(int? id_hotel)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+         
+                SqlCommand cmd_c = new SqlCommand();
+                cmd_c.Connection = con;
+                cmd_c.CommandType = CommandType.Text;
+                cmd_c.CommandText = "SELECT dbo.[GetHotelLastRoom](@p_id_hotel);";
+                cmd_c.Parameters.AddWithValue("@p_id_hotel", id_hotel);
+
+                con.Open();
+                int max_room_number = int.Parse(cmd_c.ExecuteScalar().ToString());
+                con.Close();
+                return max_room_number;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return 2;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public int GetHotelRoomsQuantity(int? id_hotel)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+
+                SqlCommand cmd_c = new SqlCommand();
+                cmd_c.Connection = con;
+                cmd_c.CommandType = CommandType.Text;
+                cmd_c.CommandText = "SELECT dbo.[GetHotelRoomsQuantity](@p_id_hotel);";
+                cmd_c.Parameters.AddWithValue("@p_id_hotel", id_hotel);
+
+                con.Open();
+                int room_quantity = int.Parse(cmd_c.ExecuteScalar().ToString());
+                con.Close();
+                return room_quantity;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return 2;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public DateTime GetBeginOperations(int? id_hotel)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                              
+                SqlCommand cmd_c = new SqlCommand();
+                cmd_c.Connection = con;
+                cmd_c.CommandType = CommandType.Text;
+                cmd_c.CommandText = "SELECT dbo.[GetHotelBeginOperations](@p_id_hotel);";
+                cmd_c.Parameters.AddWithValue("@p_id_hotel", id_hotel);
+
+                con.Open();
+                string aux = cmd_c.ExecuteScalar().ToString();
+                con.Close();
+                DateTime Begin_operation = DateTime.Parse(aux);
+                return Begin_operation;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return DateTime.Parse("0000/01/01");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public DateTime GetCurrentDate()
+        {
+            try
+            {
+                DateTime Current_Date;
+                con.ConnectionString = Connection;
+
+                var cmd = new SqlCommand("SELECT GETDATE()", con);
+                con.Open();
+
+                Current_Date = (DateTime)cmd.ExecuteScalar();
+                return Current_Date.Date;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return DateTime.Parse("0000/01/01");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
         public int SetRooms(RoomModel added_room, AmenityRoomModel added_amenityroom, UserModel current_session)
         {
             try
@@ -344,21 +541,17 @@ namespace MAD___PF_Hotel.ConexionDB
 
                 SqlDataReader dr = cmd_c.ExecuteReader();
 
-                if (dr.Read())
-                {
                     return 1;
-                }
             }
             catch (SqlException e)
             {
                 MessageBox.Show("The data don´t apply on this format." + e.ToString());
-                return 1;
+                return 0;
             }
             finally
             {
                 con.Close();
             }
-            return 1;
         }
 
         public UserModel GetUserData(string parameter_1, int? parameter_2)
@@ -403,7 +596,58 @@ namespace MAD___PF_Hotel.ConexionDB
             }
             return null;
         }
-  
+
+        public List<ClientHistorialModel> GetClientHistorial(string parameter_1, string parameter_2, string parameter_3)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                List<ClientHistorialModel> list = new List<ClientHistorialModel>();
+                SqlCommand cmd = new SqlCommand("spGetClientHistorial", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_id_client", int.Parse(parameter_1));
+                cmd.Parameters.AddWithValue("@p_year_1", parameter_2);
+                cmd.Parameters.AddWithValue("@p_year_2", parameter_3);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                
+
+                while (dr.Read())
+                {
+                    ClientHistorialModel historial_client = new ClientHistorialModel();
+
+                    historial_client.client_name = dr["NAMES"].ToString();
+                    historial_client.city_name = dr["CITY_NAME"].ToString();
+                    historial_client.hotel_name = dr["HOTEL_NAME"].ToString();
+                    historial_client.room_type = dr["ROOM_NAME"].ToString();
+                    historial_client.room_number = int.Parse(dr["ROOM_NUMBER"].ToString());
+                    historial_client.people_quantity = byte.Parse(dr["PEOPLE_QUANTITY"].ToString());
+                    historial_client.id_reservation = dr["ID_RESERVATION"].ToString();
+                    historial_client.reserv_date = DateTime.Parse(dr["DATE_CREA"].ToString());
+                    historial_client.check_in = DateTime.Parse(dr["CHECK_IN"].ToString());
+                    historial_client.check_out = DateTime.Parse(dr["CHECK_OUT"].ToString());
+                    historial_client.nombre_estatus = dr["STATUS_NAME"].ToString();
+                    historial_client.pago_anticipo = float.Parse(dr["UPFRONT_PAY"].ToString());
+                    historial_client.monto_hospedaje = float.Parse(dr["TOTAL_AMOUNT"].ToString());
+                    //historial_client.total_factura = Convert.ToInt32(dr["ID_PHONE"]);
+
+                    list.Add(historial_client);
+                }
+                return list;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Hubo un error al retornar los datos." + e.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return null;
+        }
+
         public DataTable FillCountriesBox() 
         {
             try
@@ -643,6 +887,74 @@ namespace MAD___PF_Hotel.ConexionDB
             }
         }
 
+        public ServiceModel GetServiceData(string aux_value)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+                ServiceModel searched_model = new ServiceModel();
+
+                SqlCommand da = new SqlCommand("spGetService", con);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@p_id_service", aux_value);
+
+                SqlDataReader dr = da.ExecuteReader();
+                while (dr.Read())
+                {
+                    searched_model.Id_Service = int.Parse(dr["ID_SERVICE"].ToString());
+                    searched_model.Service_name = dr["SERVICE_N"].ToString();
+                    searched_model.Service_descrtiption = dr["SERVICE_D"].ToString();
+                    searched_model.Service_price = float.Parse(dr["SERVICE_PRICE"].ToString());
+                }
+
+                return searched_model;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public int SetServiceInReservation(string aux_value)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+                ServiceModel searched_model = new ServiceModel();
+
+                SqlCommand da = new SqlCommand("spGetService", con);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@p_id_service", aux_value);
+
+                SqlDataReader dr = da.ExecuteReader();
+                while (dr.Read())
+                {
+                    searched_model.Id_Service = int.Parse(dr["ID_SERVICE"].ToString());
+                    searched_model.Service_name = dr["SERVICE_N"].ToString();
+                    searched_model.Service_descrtiption = dr["SERVICE_D"].ToString();
+                    searched_model.Service_price = float.Parse(dr["SERVICE_PRICE"].ToString());
+                }
+
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public HotelModel GetHotelData(int aux_value)
         {
             try
@@ -769,10 +1081,16 @@ namespace MAD___PF_Hotel.ConexionDB
                 da.Parameters.AddWithValue("@p_id_hotel", value);
                 DataTable dt = new DataTable() { CaseSensitive = true };
 
-                SqlDataReader dr = da.ExecuteReader();
+                SqlDataReader dr = da.ExecuteReader();             
                 dt.Load(dr);
-
-                return dt;
+                if(dt.Rows.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    return dt;
+                }  
             }
             catch (SqlException e)
             {
@@ -823,37 +1141,164 @@ namespace MAD___PF_Hotel.ConexionDB
             }
         }
 
-        public ClientModel GetClientData(string parameter_1, string parameter_2, string parameter_3)
+        public ClientModel GetClientData(int? parameter_1, string parameter_2, string parameter_3)
         {
             try
             {
                 con.ConnectionString = Connection;
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("spGetClient", con);
+
+                ClientModel searched_client = new ClientModel();
+
+                if (parameter_1 != null)
+                {
+                    SqlCommand cmd = new SqlCommand("spGetClientIDClient", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_id_client", parameter_1);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+
+                    while (dr.Read())
+                    {
+                        searched_client.Id_Client = Convert.ToInt32(dr["ID_CLIENT"]);
+                        searched_client.Full_Name = dr["FULL_NAME"].ToString();
+                        searched_client.Names = dr["FIRST_NAMES"].ToString();
+                        searched_client.Last_Name_One = dr["LAST_NAME_ONE"].ToString();
+                        searched_client.Last_Name_Two = dr["LAST_NAME_TWO"].ToString();
+                        searched_client.Date_Birth = DateTime.Parse(dr["DATE_BIRTH"].ToString());
+                        searched_client.RFC = dr["RFC"].ToString();
+                        searched_client.Email = dr["EMAIL"].ToString();
+                        searched_client.Reference = dr["REFERENCE"].ToString();
+                        searched_client.Marital_Status = dr["MARITAL_STATUS"].ToString();
+                    }
+                }
+                else if (parameter_2 != null)
+                {
+                    SqlCommand cmd = new SqlCommand("spGetClientByEmail", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_email", parameter_2);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+
+                    while (dr.Read())
+                    {
+                        searched_client.Id_Client = Convert.ToInt32(dr["ID_CLIENT"]);
+                        searched_client.Full_Name = dr["FULL_NAME"].ToString();
+                        searched_client.Names = dr["FIRST_NAMES"].ToString();
+                        searched_client.Last_Name_One = dr["LAST_NAME_ONE"].ToString();
+                        searched_client.Last_Name_Two = dr["LAST_NAME_TWO"].ToString();
+                        searched_client.Date_Birth = DateTime.Parse(dr["DATE_BIRTH"].ToString());
+                        searched_client.RFC = dr["RFC"].ToString();
+                        searched_client.Email = dr["EMAIL"].ToString();
+                        searched_client.Reference = dr["REFERENCE"].ToString();
+                        searched_client.Marital_Status = dr["MARITAL_STATUS"].ToString();
+                    }
+                }
+                else if (parameter_3 != null)
+                {
+                    SqlCommand cmd = new SqlCommand("spGetClientByRFC", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_rfc", parameter_3);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+
+                    while (dr.Read())
+                    {
+                        searched_client.Id_Client = Convert.ToInt32(dr["ID_CLIENT"]);
+                        searched_client.Full_Name = dr["FULL_NAME"].ToString();
+                        searched_client.Names = dr["FIRST_NAMES"].ToString();
+                        searched_client.Last_Name_One = dr["LAST_NAME_ONE"].ToString();
+                        searched_client.Last_Name_Two = dr["LAST_NAME_TWO"].ToString();
+                        searched_client.Date_Birth = DateTime.Parse(dr["DATE_BIRTH"].ToString());
+                        searched_client.RFC = dr["RFC"].ToString();
+                        searched_client.Email = dr["EMAIL"].ToString();
+                        searched_client.Reference = dr["REFERENCE"].ToString();
+                        searched_client.Marital_Status = dr["MARITAL_STATUS"].ToString();
+                    }
+                }
+
+                return searched_client;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Hubo un error al retornar los datos." + e.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return null;
+        }
+
+        public List<ClientModel> GetClientData(string parameter_1)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("spGetClientByNames", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@p_full_name", parameter_1);
-                cmd.Parameters.AddWithValue("@p_email", parameter_2);
-                cmd.Parameters.AddWithValue("@p_rfc", parameter_3);
 
                 // SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 SqlDataReader dr = cmd.ExecuteReader();
-                ClientModel logged_user = new ClientModel();
+                List<ClientModel> searched_users = new List<ClientModel>();
 
                 while (dr.Read())
                 {
-                    logged_user.Id_Client = Convert.ToInt32(dr["ID_CLIENT"]);
-                    logged_user.Full_Name = dr["FULL_NAME"].ToString();
-                    logged_user.Names = dr["FIRST_NAMES"].ToString();
-                    logged_user.Last_Name_One = dr["LAST_NAME_ONE"].ToString();
-                    logged_user.Last_Name_Two = dr["LAST_NAME_TWO"].ToString();
-                    logged_user.Date_Birth = DateTime.Parse(dr["DATE_BIRTH"].ToString());
-                    logged_user.RFC = dr["RFC"].ToString();
-                    logged_user.Email = dr["EMAIL"].ToString();
-                    logged_user.Reference = dr["REFERENCE"].ToString();
-                    logged_user.Marital_Status = dr["MARITAL_STATUS"].ToString();
+                    ClientModel aux = new ClientModel();
+                    aux.Id_Client = Convert.ToInt32(dr["ID_CLIENT"]);
+                    aux.Full_Name = dr["FULL_NAME"].ToString();
+                    //aux.Names = dr["FIRST_NAMES"].ToString();
+                    //aux.Last_Name_One = dr["LAST_NAME_ONE"].ToString();
+                    //aux.Last_Name_Two = dr["LAST_NAME_TWO"].ToString();
+                    //aux.Date_Birth = DateTime.Parse(dr["DATE_BIRTH"].ToString());
+                    //aux.RFC = dr["RFC"].ToString();
+                    //aux.Email = dr["EMAIL"].ToString();
+                    //aux.Reference = dr["REFERENCE"].ToString();
+                    //aux.Marital_Status = dr["MARITAL_STATUS"].ToString();
+                    searched_users.Add(aux);
                 }
-                return logged_user;
+                return searched_users;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Hubo un error al retornar los datos." + e.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            return null;
+        }
+
+        public DataTable GetClientsData(string parameter_1)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("spGetClientByNames", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_full_name", parameter_1);
+
+                DataTable dt = new DataTable() { CaseSensitive = true };
+
+                dt.Clear();
+                dt.Columns.Add("FULL_NAME");
+                dt.Columns.Add("ID_CLIENT");
+                DataRow _ravi = dt.NewRow();
+                _ravi["FULL_NAME"] = "--- Select ---";
+                _ravi["ID_CLIENT"] = 0;
+                dt.Rows.Add(_ravi);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+
+                return dt;
             }
             catch (SqlException e)
             {
@@ -1119,6 +1564,7 @@ namespace MAD___PF_Hotel.ConexionDB
                     searched_reservation.Client_Name = dr["NAMES"].ToString();
                     searched_reservation.Id_Room = int.Parse(dr["ID_ROOM"].ToString());
                     searched_reservation.Room_Name = dr["ROOM_NAME"].ToString();
+                    searched_reservation.Room_Number = Convert.ToInt32(dr["ROOM_NUMBER"]);
                     searched_reservation.People_Quantity = Convert.ToInt32(dr["PEOPLE_QUANTITY"]);
                     searched_reservation.Bed_Quantity = int.Parse(dr["BED_QUANTITY"].ToString());
                     searched_reservation.Price_x_night = float.Parse(dr["PRICE_PER_NIGHT"].ToString());
@@ -1147,7 +1593,7 @@ namespace MAD___PF_Hotel.ConexionDB
             return null;
         }
 
-        public bool GetReservationForCheckIn(int parameter_1)
+        public int GetReservationForCheckIn(string parameter_1)
         {
             try
             {
@@ -1160,26 +1606,85 @@ namespace MAD___PF_Hotel.ConexionDB
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 //CheckInformationModel searched_reservation = new CheckInformationModel();
-
-                if (dr.Read())
-                {
-                    MessageBox.Show("The status has been changed.");
-                }
-                else
-                {
-                    MessageBox.Show("The status is already changed.");
-                }
-                return true;
+                return 1;
             }
             catch (SqlException e)
             {
                 MessageBox.Show("Hubo un error al retornar los datos." + e.ToString());
-                return false;
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+  
+            }
+        }
+
+        public int SetReservationForCancelation(string parameter_1)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("spSetCanceled", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_id_reservation", parameter_1);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Hubo un error al retornar los datos." + e.ToString());
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+
+            }
+        }
+
+        public List<ServiceModel> GetServiceData(int parameter_1)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                List<ServiceModel> list = new List<ServiceModel>();
+                SqlCommand cmd = new SqlCommand("spGetServices", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_id_hotel", parameter_1);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+
+                while (dr.Read())
+                {
+                    ServiceModel service = new ServiceModel();
+
+                    service.Id_Service = int.Parse(dr["ID_SERVICE"].ToString());
+                    service.Service_name = dr["SERVICE_N"].ToString();
+                    service.Service_price = float.Parse(dr["SERVICE_PRICE"].ToString());
+                    service.Service_descrtiption = dr["SERVICE_D"].ToString();
+
+                    //historial_client.total_factura = Convert.ToInt32(dr["ID_PHONE"]);
+
+                    list.Add(service);
+                }
+                return list;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Hubo un error al retornar los datos." + e.ToString());
             }
             finally
             {
                 con.Close();
             }
+            return null;
         }
     }
 }

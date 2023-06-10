@@ -17,7 +17,8 @@ namespace MAD___PF_Hotel
     {
         Conexion sqlConexion = new Conexion();
         UserModel current_session = new UserModel();
-        ClientModel updated_client = new ClientModel();
+        List<ClientModel> client_list = new List<ClientModel>();
+        ClientModel updated_client = new ClientModel();     
         AddressModel updated_address = new AddressModel();
         PhoneModel updated_phone = new PhoneModel();
         public UpdateClient()
@@ -73,7 +74,14 @@ namespace MAD___PF_Hotel
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            //if (sqlConexion.DeleteHotel())
+            //{
 
+            //}
+            //else
+            //{
+
+            //}
         }
 
         public void Get_Current_Session(string aux_user)
@@ -86,45 +94,27 @@ namespace MAD___PF_Hotel
         {
             if (rbtnByName.Checked == true)
             {
-                string texted_client = txtboxClient.Text;
-                //ClientModel searched_client = new ClientModel();
-                updated_client = sqlConexion.GetClientData(texted_client, null, null);
-                if (updated_client.Id_Client == null)
+                string texted_client = cmboxClient.Text;
+                cmboxClient.DataSource = sqlConexion.GetClientsData(texted_client);
+                if (cmboxClient.DataSource == null)
                 {
                     MessageBox.Show("There´s no client with that RFC.");
                     return;
                 }
                 else
                 {
-                    txtboxFN.Text = updated_client.Names;
-                    txtboxLNO.Text = updated_client.Last_Name_One;
-                    txtboxLNT.Text = updated_client.Last_Name_Two;
-                    txtboxRFC.Text = updated_client.RFC;
-                    txtboxMaritalStatus.Text = updated_client.Marital_Status;
-                    dtpDateBirthC.Value = updated_client.Date_Birth;
-                    txtboxEmailClient.Text = updated_client.Email;
-                    txtboxReferenceClient.Text = updated_client.Reference;
-                    //AddressModel searched_address = new AddressModel();
-                    updated_address = sqlConexion.GetAddresstData(updated_client.Id_Client);
-                    //PhoneModel searched_phone = new PhoneModel();
-                    updated_phone = sqlConexion.GetPhoneData(updated_client.Id_Client);
-
-                    txtboxStreetClient.Text = updated_address.Street_Name;
-                    txtboxHouseNClient.Text = updated_address.House_Number;
-                    txtboxSuburbClient.Text = updated_address.Suburb_Name;
-                    txtboxZipCodeClient.Text = updated_address.Zip_Code;
-
-                    txtboxHousePhoneClient.Text = updated_phone.Phone_Number;
-                    txtboxCellPhoneClient.Text = updated_phone.Cellphone_Number;
+                    //cmboxClient.DataSource = client_list;
+                    cmboxClient.DisplayMember = "FULL_NAME";
+                    cmboxClient.ValueMember = "ID_CLIENT";
+                    //cmboxClient.Items.Insert(0, "--- Select ---");
                     return;
                 }
             }
             else if (rbtnByEmail.Checked == true)
             {
-                string texted_client = txtboxClient.Text;
-                //ClientModel searched_client = new ClientModel();
+                string texted_client = cmboxClient.Text;
                 updated_client = sqlConexion.GetClientData(null, texted_client, null);
-                if (updated_client.Id_Client == null)
+                if (updated_client.Id_Client == 0)
                 {
                     MessageBox.Show("There´s no client with that RFC.");
                     return;
@@ -156,10 +146,9 @@ namespace MAD___PF_Hotel
             }
             else if (rbtnByRFC.Checked == true)
             {
-                string texted_client = txtboxClient.Text;
-                //ClientModel searched_client = new ClientModel();
+                string texted_client = cmboxClient.Text;
                 updated_client = sqlConexion.GetClientData(null, null, texted_client);
-                if (updated_client.Id_Client == null)
+                if (updated_client.Id_Client == 0)
                 {
                     MessageBox.Show("There´s no client with that RFC.");
                     return;
@@ -348,6 +337,50 @@ namespace MAD___PF_Hotel
                 MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+        }
+
+        private void cmboxClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cmboxClient.SelectedIndex;
+            if (index == 0)
+            {
+                return;
+            }
+            else
+            {
+                int id_client = int.Parse(cmboxClient.SelectedValue.ToString());
+                //string texted_client = cmboxClient.Text;
+                updated_client = sqlConexion.GetClientData(id_client, null, null);
+                if (updated_client.Id_Client == 0)
+                {
+                    MessageBox.Show("There´s no client with that RFC.");
+                    return;
+                }
+                else
+                {
+                    txtboxFN.Text = updated_client.Names;
+                    txtboxLNO.Text = updated_client.Last_Name_One;
+                    txtboxLNT.Text = updated_client.Last_Name_Two;
+                    txtboxRFC.Text = updated_client.RFC;
+                    txtboxMaritalStatus.Text = updated_client.Marital_Status;
+                    dtpDateBirthC.Value = updated_client.Date_Birth;
+                    txtboxEmailClient.Text = updated_client.Email;
+                    txtboxReferenceClient.Text = updated_client.Reference;
+                    //AddressModel searched_address = new AddressModel();
+                    updated_address = sqlConexion.GetAddresstData(updated_client.Id_Client);
+                    //PhoneModel searched_phone = new PhoneModel();
+                    updated_phone = sqlConexion.GetPhoneData(updated_client.Id_Client);
+
+                    txtboxStreetClient.Text = updated_address.Street_Name;
+                    txtboxHouseNClient.Text = updated_address.House_Number;
+                    txtboxSuburbClient.Text = updated_address.Suburb_Name;
+                    txtboxZipCodeClient.Text = updated_address.Zip_Code;
+
+                    txtboxHousePhoneClient.Text = updated_phone.Phone_Number;
+                    txtboxCellPhoneClient.Text = updated_phone.Cellphone_Number;
+                    return;
+                }
             }
         }
     }

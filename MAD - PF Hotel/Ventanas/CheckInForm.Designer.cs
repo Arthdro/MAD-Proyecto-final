@@ -58,7 +58,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtboxResvervationID = new System.Windows.Forms.TextBox();
             this.btnSearchClient = new System.Windows.Forms.Button();
-            this.lblQuantityRooms = new System.Windows.Forms.Label();
+            this.lblRoomNumber = new System.Windows.Forms.Label();
             this.btnCheckInRe = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -203,11 +203,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(20, 303);
+            this.label14.Location = new System.Drawing.Point(54, 303);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(176, 28);
+            this.label14.Size = new System.Drawing.Size(142, 28);
             this.label14.TabIndex = 13;
-            this.label14.Text = "Quantity of rooms:";
+            this.label14.Text = "Room number:";
             // 
             // lblIDReserv
             // 
@@ -355,14 +355,14 @@
             this.btnSearchClient.UseVisualStyleBackColor = true;
             this.btnSearchClient.Click += new System.EventHandler(this.btnSearchClient_Click);
             // 
-            // lblQuantityRooms
+            // lblRoomNumber
             // 
-            this.lblQuantityRooms.AutoSize = true;
-            this.lblQuantityRooms.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantityRooms.Location = new System.Drawing.Point(220, 303);
-            this.lblQuantityRooms.Name = "lblQuantityRooms";
-            this.lblQuantityRooms.Size = new System.Drawing.Size(0, 28);
-            this.lblQuantityRooms.TabIndex = 114;
+            this.lblRoomNumber.AutoSize = true;
+            this.lblRoomNumber.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomNumber.Location = new System.Drawing.Point(220, 303);
+            this.lblRoomNumber.Name = "lblRoomNumber";
+            this.lblRoomNumber.Size = new System.Drawing.Size(0, 28);
+            this.lblRoomNumber.TabIndex = 114;
             // 
             // btnCheckInRe
             // 
@@ -384,6 +384,7 @@
             this.btnExit.TabIndex = 116;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label15
             // 
@@ -457,7 +458,7 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnCheckInRe);
-            this.Controls.Add(this.lblQuantityRooms);
+            this.Controls.Add(this.lblRoomNumber);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.txtboxResvervationID);
             this.Controls.Add(this.btnSearchClient);
@@ -528,7 +529,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtboxResvervationID;
         private System.Windows.Forms.Button btnSearchClient;
-        private System.Windows.Forms.Label lblQuantityRooms;
+        private System.Windows.Forms.Label lblRoomNumber;
         private System.Windows.Forms.Button btnCheckInRe;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label15;

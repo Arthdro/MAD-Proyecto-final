@@ -17,6 +17,7 @@ namespace MAD___PF_Hotel.Ventanas
         Conexion sqlConexion = new Conexion();
         UserModel current_session = new UserModel();
         CheckInformationModel current_reserv = new CheckInformationModel();
+        CheckInformationModel reservationInfo = new CheckInformationModel();
 
         public CheckInForm()
         {
@@ -32,14 +33,14 @@ namespace MAD___PF_Hotel.Ventanas
         private void btnSearchClient_Click(object sender, EventArgs e)
         {
             string reservation_value = txtboxResvervationID.Text;
-            CheckInformationModel reservationInfo = new CheckInformationModel();
+           
             reservationInfo = sqlConexion.GetReservationData(reservation_value);
             lblIDReserv.Text = reservationInfo.Id_Reservation.ToString();
             lblClientName.Text = reservationInfo.Client_Name;
             lblHotelName.Text = reservationInfo.Hotel_Name;
             lblLocation.Text = reservationInfo.Full_City_Name;
             lblRoomName.Text = reservationInfo.Room_Name;
-            lblQuantityRooms.Text = reservationInfo.Room_Number.ToString();
+            lblRoomNumber.Text = reservationInfo.Room_Number.ToString();
             lblBedQuantity.Text = reservationInfo.Bed_Quantity.ToString();
             lblPeopleQuantity.Text = reservationInfo.People_Quantity.ToString();
             lblPricePerNight.Text = reservationInfo.Price_x_night.ToString();
@@ -55,14 +56,29 @@ namespace MAD___PF_Hotel.Ventanas
 
         private void btnCheckInRe_Click(object sender, EventArgs e)
         {
-            //if (sqlConexion.GetReservationForCheckIn(current_reserv.Id_Reservation))
-            //{
-                
-            //}
-            //else
-            //{
+            if (reservationInfo.Status_Name == "In process")
+            {
+                MessageBox.Show("The reservation is already in process.");
+            }
+            else
+            {
+                if (sqlConexion.GetReservationForCheckIn(current_reserv.Id_Reservation) == 0)
+                {
+                    MessageBox.Show("The reservation is already in process.");
+                }
+                else
+                {
+                    MessageBox.Show("The status has been changed.");
+                    reservationInfo.Status_Name = "In process";
+                }
 
-            //}
+            }
+           
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

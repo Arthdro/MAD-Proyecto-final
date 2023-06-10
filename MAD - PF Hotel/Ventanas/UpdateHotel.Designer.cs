@@ -65,21 +65,22 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnCancel.Location = new System.Drawing.Point(433, 370);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(577, 455);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(106, 41);
+            this.btnCancel.Size = new System.Drawing.Size(141, 50);
             this.btnCancel.TabIndex = 82;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdateHotel
             // 
             this.btnUpdateHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnUpdateHotel.Location = new System.Drawing.Point(88, 370);
-            this.btnUpdateHotel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateHotel.Location = new System.Drawing.Point(117, 455);
+            this.btnUpdateHotel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateHotel.Name = "btnUpdateHotel";
-            this.btnUpdateHotel.Size = new System.Drawing.Size(106, 41);
+            this.btnUpdateHotel.Size = new System.Drawing.Size(141, 50);
             this.btnUpdateHotel.TabIndex = 81;
             this.btnUpdateHotel.Text = "Update info";
             this.btnUpdateHotel.UseVisualStyleBackColor = true;
@@ -88,13 +89,14 @@
             // btnDeleteHotel
             // 
             this.btnDeleteHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnDeleteHotel.Location = new System.Drawing.Point(260, 370);
-            this.btnDeleteHotel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteHotel.Location = new System.Drawing.Point(347, 455);
+            this.btnDeleteHotel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteHotel.Name = "btnDeleteHotel";
-            this.btnDeleteHotel.Size = new System.Drawing.Size(106, 41);
+            this.btnDeleteHotel.Size = new System.Drawing.Size(141, 50);
             this.btnDeleteHotel.TabIndex = 97;
             this.btnDeleteHotel.Text = "Delete";
             this.btnDeleteHotel.UseVisualStyleBackColor = true;
+            this.btnDeleteHotel.Click += new System.EventHandler(this.btnDeleteHotel_Click);
             // 
             // panel1
             // 
@@ -128,20 +130,20 @@
             this.panel1.Controls.Add(this.txtboxNumberOfFloors);
             this.panel1.Controls.Add(this.txtboxHotelZipCode);
             this.panel1.Controls.Add(this.txtboxHotelStreet);
-            this.panel1.Location = new System.Drawing.Point(44, 56);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(206, 113);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(631, 438);
+            this.panel1.Size = new System.Drawing.Size(841, 539);
             this.panel1.TabIndex = 98;
             // 
             // cmboxHotel
             // 
             this.cmboxHotel.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.cmboxHotel.FormattingEnabled = true;
-            this.cmboxHotel.Location = new System.Drawing.Point(210, 76);
-            this.cmboxHotel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmboxHotel.Location = new System.Drawing.Point(280, 94);
+            this.cmboxHotel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmboxHotel.Name = "cmboxHotel";
-            this.cmboxHotel.Size = new System.Drawing.Size(236, 29);
+            this.cmboxHotel.Size = new System.Drawing.Size(313, 36);
             this.cmboxHotel.TabIndex = 124;
             this.cmboxHotel.SelectedIndexChanged += new System.EventHandler(this.cmboxHotel_SelectedIndexChanged);
             // 
@@ -149,10 +151,10 @@
             // 
             this.cBoxCity.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.cBoxCity.FormattingEnabled = true;
-            this.cBoxCity.Location = new System.Drawing.Point(210, 40);
-            this.cBoxCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cBoxCity.Location = new System.Drawing.Point(280, 49);
+            this.cBoxCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cBoxCity.Name = "cBoxCity";
-            this.cBoxCity.Size = new System.Drawing.Size(236, 29);
+            this.cBoxCity.Size = new System.Drawing.Size(313, 36);
             this.cBoxCity.TabIndex = 123;
             this.cBoxCity.SelectedIndexChanged += new System.EventHandler(this.cBoxCity_SelectedIndexChanged);
             // 
@@ -160,10 +162,9 @@
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblCity.Location = new System.Drawing.Point(150, 41);
-            this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCity.Location = new System.Drawing.Point(200, 50);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(40, 21);
+            this.lblCity.Size = new System.Drawing.Size(50, 28);
             this.lblCity.TabIndex = 122;
             this.lblCity.Text = "City:";
             // 
@@ -171,10 +172,10 @@
             // 
             this.checkTaxiService.AutoSize = true;
             this.checkTaxiService.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkTaxiService.Location = new System.Drawing.Point(482, 277);
-            this.checkTaxiService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkTaxiService.Location = new System.Drawing.Point(643, 341);
+            this.checkTaxiService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkTaxiService.Name = "checkTaxiService";
-            this.checkTaxiService.Size = new System.Drawing.Size(109, 25);
+            this.checkTaxiService.Size = new System.Drawing.Size(134, 32);
             this.checkTaxiService.TabIndex = 121;
             this.checkTaxiService.Text = "Taxi Service";
             this.checkTaxiService.UseVisualStyleBackColor = true;
@@ -183,10 +184,10 @@
             // 
             this.checkRestaurant.AutoSize = true;
             this.checkRestaurant.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkRestaurant.Location = new System.Drawing.Point(482, 244);
-            this.checkRestaurant.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkRestaurant.Location = new System.Drawing.Point(643, 300);
+            this.checkRestaurant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkRestaurant.Name = "checkRestaurant";
-            this.checkRestaurant.Size = new System.Drawing.Size(104, 25);
+            this.checkRestaurant.Size = new System.Drawing.Size(126, 32);
             this.checkRestaurant.TabIndex = 120;
             this.checkRestaurant.Text = "Restaurant";
             this.checkRestaurant.UseVisualStyleBackColor = true;
@@ -195,10 +196,10 @@
             // 
             this.checkMassage.AutoSize = true;
             this.checkMassage.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkMassage.Location = new System.Drawing.Point(482, 210);
-            this.checkMassage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkMassage.Location = new System.Drawing.Point(643, 258);
+            this.checkMassage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkMassage.Name = "checkMassage";
-            this.checkMassage.Size = new System.Drawing.Size(90, 25);
+            this.checkMassage.Size = new System.Drawing.Size(110, 32);
             this.checkMassage.TabIndex = 119;
             this.checkMassage.Text = "Massage";
             this.checkMassage.UseVisualStyleBackColor = true;
@@ -207,10 +208,10 @@
             // 
             this.checkSwimPool.AutoSize = true;
             this.checkSwimPool.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkSwimPool.Location = new System.Drawing.Point(482, 177);
-            this.checkSwimPool.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkSwimPool.Location = new System.Drawing.Point(643, 218);
+            this.checkSwimPool.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkSwimPool.Name = "checkSwimPool";
-            this.checkSwimPool.Size = new System.Drawing.Size(139, 25);
+            this.checkSwimPool.Size = new System.Drawing.Size(172, 32);
             this.checkSwimPool.TabIndex = 118;
             this.checkSwimPool.Text = "Swimming pool";
             this.checkSwimPool.UseVisualStyleBackColor = true;
@@ -219,10 +220,10 @@
             // 
             this.checkEventRoom.AutoSize = true;
             this.checkEventRoom.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkEventRoom.Location = new System.Drawing.Point(482, 144);
-            this.checkEventRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkEventRoom.Location = new System.Drawing.Point(643, 177);
+            this.checkEventRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkEventRoom.Name = "checkEventRoom";
-            this.checkEventRoom.Size = new System.Drawing.Size(109, 25);
+            this.checkEventRoom.Size = new System.Drawing.Size(135, 32);
             this.checkEventRoom.TabIndex = 117;
             this.checkEventRoom.Text = "Event room";
             this.checkEventRoom.UseVisualStyleBackColor = true;
@@ -231,10 +232,10 @@
             // 
             this.checkRoomServ.AutoSize = true;
             this.checkRoomServ.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkRoomServ.Location = new System.Drawing.Point(482, 110);
-            this.checkRoomServ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkRoomServ.Location = new System.Drawing.Point(643, 135);
+            this.checkRoomServ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkRoomServ.Name = "checkRoomServ";
-            this.checkRoomServ.Size = new System.Drawing.Size(126, 25);
+            this.checkRoomServ.Size = new System.Drawing.Size(154, 32);
             this.checkRoomServ.TabIndex = 116;
             this.checkRoomServ.Text = "Room Service";
             this.checkRoomServ.UseVisualStyleBackColor = true;
@@ -243,10 +244,10 @@
             // 
             this.checkWiFi.AutoSize = true;
             this.checkWiFi.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkWiFi.Location = new System.Drawing.Point(482, 77);
-            this.checkWiFi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkWiFi.Location = new System.Drawing.Point(643, 95);
+            this.checkWiFi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkWiFi.Name = "checkWiFi";
-            this.checkWiFi.Size = new System.Drawing.Size(60, 25);
+            this.checkWiFi.Size = new System.Drawing.Size(73, 32);
             this.checkWiFi.TabIndex = 115;
             this.checkWiFi.Text = "WiFi";
             this.checkWiFi.UseVisualStyleBackColor = true;
@@ -255,10 +256,10 @@
             // 
             this.checkGym.AutoSize = true;
             this.checkGym.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.checkGym.Location = new System.Drawing.Point(482, 44);
-            this.checkGym.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkGym.Location = new System.Drawing.Point(643, 54);
+            this.checkGym.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkGym.Name = "checkGym";
-            this.checkGym.Size = new System.Drawing.Size(62, 25);
+            this.checkGym.Size = new System.Drawing.Size(75, 32);
             this.checkGym.TabIndex = 114;
             this.checkGym.Text = "Gym";
             this.checkGym.UseVisualStyleBackColor = true;
@@ -267,30 +268,29 @@
             // 
             this.dtpBeginOperations.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.dtpBeginOperations.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBeginOperations.Location = new System.Drawing.Point(210, 310);
-            this.dtpBeginOperations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBeginOperations.Location = new System.Drawing.Point(280, 382);
+            this.dtpBeginOperations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpBeginOperations.Name = "dtpBeginOperations";
-            this.dtpBeginOperations.Size = new System.Drawing.Size(236, 29);
+            this.dtpBeginOperations.Size = new System.Drawing.Size(313, 34);
             this.dtpBeginOperations.TabIndex = 113;
             // 
             // lblSuburb
             // 
             this.lblSuburb.AutoSize = true;
             this.lblSuburb.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblSuburb.Location = new System.Drawing.Point(128, 179);
-            this.lblSuburb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSuburb.Location = new System.Drawing.Point(171, 220);
             this.lblSuburb.Name = "lblSuburb";
-            this.lblSuburb.Size = new System.Drawing.Size(64, 21);
+            this.lblSuburb.Size = new System.Drawing.Size(80, 28);
             this.lblSuburb.TabIndex = 112;
             this.lblSuburb.Text = "Suburb:";
             // 
             // txtboxHotelSuburb
             // 
             this.txtboxHotelSuburb.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtboxHotelSuburb.Location = new System.Drawing.Point(210, 178);
-            this.txtboxHotelSuburb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtboxHotelSuburb.Location = new System.Drawing.Point(280, 219);
+            this.txtboxHotelSuburb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxHotelSuburb.Name = "txtboxHotelSuburb";
-            this.txtboxHotelSuburb.Size = new System.Drawing.Size(236, 29);
+            this.txtboxHotelSuburb.Size = new System.Drawing.Size(313, 34);
             this.txtboxHotelSuburb.TabIndex = 111;
             this.txtboxHotelSuburb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHotelSuburb_KeyPress);
             // 
@@ -298,20 +298,19 @@
             // 
             this.lblHouseNumber.AutoSize = true;
             this.lblHouseNumber.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblHouseNumber.Location = new System.Drawing.Point(79, 147);
-            this.lblHouseNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHouseNumber.Location = new System.Drawing.Point(105, 181);
             this.lblHouseNumber.Name = "lblHouseNumber";
-            this.lblHouseNumber.Size = new System.Drawing.Size(117, 21);
+            this.lblHouseNumber.Size = new System.Drawing.Size(145, 28);
             this.lblHouseNumber.TabIndex = 110;
             this.lblHouseNumber.Text = "House number:";
             // 
             // txtboxHotelNumber
             // 
             this.txtboxHotelNumber.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtboxHotelNumber.Location = new System.Drawing.Point(210, 145);
-            this.txtboxHotelNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtboxHotelNumber.Location = new System.Drawing.Point(280, 178);
+            this.txtboxHotelNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxHotelNumber.Name = "txtboxHotelNumber";
-            this.txtboxHotelNumber.Size = new System.Drawing.Size(236, 29);
+            this.txtboxHotelNumber.Size = new System.Drawing.Size(313, 34);
             this.txtboxHotelNumber.TabIndex = 109;
             this.txtboxHotelNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHotelNumber_KeyPress);
             // 
@@ -319,10 +318,9 @@
             // 
             this.lblBeginOperations.AutoSize = true;
             this.lblBeginOperations.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblBeginOperations.Location = new System.Drawing.Point(18, 311);
-            this.lblBeginOperations.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBeginOperations.Location = new System.Drawing.Point(24, 383);
             this.lblBeginOperations.Name = "lblBeginOperations";
-            this.lblBeginOperations.Size = new System.Drawing.Size(179, 21);
+            this.lblBeginOperations.Size = new System.Drawing.Size(226, 28);
             this.lblBeginOperations.TabIndex = 108;
             this.lblBeginOperations.Text = "Beginning of operations:";
             // 
@@ -330,10 +328,9 @@
             // 
             this.lblNumberOfRooms.AutoSize = true;
             this.lblNumberOfRooms.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblNumberOfRooms.Location = new System.Drawing.Point(58, 279);
-            this.lblNumberOfRooms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumberOfRooms.Location = new System.Drawing.Point(77, 343);
             this.lblNumberOfRooms.Name = "lblNumberOfRooms";
-            this.lblNumberOfRooms.Size = new System.Drawing.Size(138, 21);
+            this.lblNumberOfRooms.Size = new System.Drawing.Size(172, 28);
             this.lblNumberOfRooms.TabIndex = 107;
             this.lblNumberOfRooms.Text = "Number of rooms:";
             // 
@@ -341,10 +338,9 @@
             // 
             this.lblNumberOfFloors.AutoSize = true;
             this.lblNumberOfFloors.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblNumberOfFloors.Location = new System.Drawing.Point(63, 245);
-            this.lblNumberOfFloors.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumberOfFloors.Location = new System.Drawing.Point(84, 302);
             this.lblNumberOfFloors.Name = "lblNumberOfFloors";
-            this.lblNumberOfFloors.Size = new System.Drawing.Size(133, 21);
+            this.lblNumberOfFloors.Size = new System.Drawing.Size(166, 28);
             this.lblNumberOfFloors.TabIndex = 106;
             this.lblNumberOfFloors.Text = "Number of floors:";
             // 
@@ -352,10 +348,9 @@
             // 
             this.lblZipCode.AutoSize = true;
             this.lblZipCode.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblZipCode.Location = new System.Drawing.Point(116, 214);
-            this.lblZipCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblZipCode.Location = new System.Drawing.Point(155, 263);
             this.lblZipCode.Name = "lblZipCode";
-            this.lblZipCode.Size = new System.Drawing.Size(75, 21);
+            this.lblZipCode.Size = new System.Drawing.Size(95, 28);
             this.lblZipCode.TabIndex = 105;
             this.lblZipCode.Text = "Zip Code:";
             // 
@@ -363,10 +358,9 @@
             // 
             this.lblHotelName.AutoSize = true;
             this.lblHotelName.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblHotelName.Location = new System.Drawing.Point(100, 79);
-            this.lblHotelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHotelName.Location = new System.Drawing.Point(133, 97);
             this.lblHotelName.Name = "lblHotelName";
-            this.lblHotelName.Size = new System.Drawing.Size(93, 21);
+            this.lblHotelName.Size = new System.Drawing.Size(117, 28);
             this.lblHotelName.TabIndex = 104;
             this.lblHotelName.Text = "Hotel name:";
             // 
@@ -374,50 +368,49 @@
             // 
             this.lblStreet.AutoSize = true;
             this.lblStreet.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.lblStreet.Location = new System.Drawing.Point(98, 112);
-            this.lblStreet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStreet.Location = new System.Drawing.Point(131, 138);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(96, 21);
+            this.lblStreet.Size = new System.Drawing.Size(120, 28);
             this.lblStreet.TabIndex = 103;
             this.lblStreet.Text = "Street name:";
             // 
             // txtboxNumberOfRooms
             // 
             this.txtboxNumberOfRooms.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtboxNumberOfRooms.Location = new System.Drawing.Point(210, 278);
-            this.txtboxNumberOfRooms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtboxNumberOfRooms.Location = new System.Drawing.Point(280, 342);
+            this.txtboxNumberOfRooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxNumberOfRooms.Name = "txtboxNumberOfRooms";
-            this.txtboxNumberOfRooms.Size = new System.Drawing.Size(236, 29);
+            this.txtboxNumberOfRooms.Size = new System.Drawing.Size(313, 34);
             this.txtboxNumberOfRooms.TabIndex = 102;
             this.txtboxNumberOfRooms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxNumberOfRooms_KeyPress);
             // 
             // txtboxNumberOfFloors
             // 
             this.txtboxNumberOfFloors.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtboxNumberOfFloors.Location = new System.Drawing.Point(210, 245);
-            this.txtboxNumberOfFloors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtboxNumberOfFloors.Location = new System.Drawing.Point(280, 302);
+            this.txtboxNumberOfFloors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxNumberOfFloors.Name = "txtboxNumberOfFloors";
-            this.txtboxNumberOfFloors.Size = new System.Drawing.Size(236, 29);
+            this.txtboxNumberOfFloors.Size = new System.Drawing.Size(313, 34);
             this.txtboxNumberOfFloors.TabIndex = 101;
             this.txtboxNumberOfFloors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxNumberOfFloors_KeyPress);
             // 
             // txtboxHotelZipCode
             // 
             this.txtboxHotelZipCode.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtboxHotelZipCode.Location = new System.Drawing.Point(210, 211);
-            this.txtboxHotelZipCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtboxHotelZipCode.Location = new System.Drawing.Point(280, 260);
+            this.txtboxHotelZipCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxHotelZipCode.Name = "txtboxHotelZipCode";
-            this.txtboxHotelZipCode.Size = new System.Drawing.Size(236, 29);
+            this.txtboxHotelZipCode.Size = new System.Drawing.Size(313, 34);
             this.txtboxHotelZipCode.TabIndex = 100;
             this.txtboxHotelZipCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHotelZipCode_KeyPress);
             // 
             // txtboxHotelStreet
             // 
             this.txtboxHotelStreet.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtboxHotelStreet.Location = new System.Drawing.Point(210, 111);
-            this.txtboxHotelStreet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtboxHotelStreet.Location = new System.Drawing.Point(280, 137);
+            this.txtboxHotelStreet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtboxHotelStreet.Name = "txtboxHotelStreet";
-            this.txtboxHotelStreet.Size = new System.Drawing.Size(236, 29);
+            this.txtboxHotelStreet.Size = new System.Drawing.Size(313, 34);
             this.txtboxHotelStreet.TabIndex = 99;
             this.txtboxHotelStreet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxHotelStreet_KeyPress);
             // 
@@ -426,22 +419,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(49, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(212, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 21);
+            this.label1.Size = new System.Drawing.Size(127, 28);
             this.label1.TabIndex = 99;
             this.label1.Text = "Update hotel";
             // 
             // UpdateHotel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(723, 574);
+            this.ClientSize = new System.Drawing.Size(1317, 808);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UpdateHotel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateHotel";

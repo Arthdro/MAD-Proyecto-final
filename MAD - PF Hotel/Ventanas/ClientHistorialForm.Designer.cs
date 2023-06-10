@@ -34,10 +34,12 @@
             this.btnSearchClient = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cmBoxYear = new System.Windows.Forms.ComboBox();
+            this.dgwClientHitorial = new System.Windows.Forms.DataGridView();
+            this.cmBoxClientHistory = new System.Windows.Forms.ComboBox();
+            this.btnShowHistorial = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwClientHitorial)).BeginInit();
             this.SuspendLayout();
             // 
             // rbtnByRFC
@@ -85,6 +87,7 @@
             this.btnSearchClient.TabIndex = 147;
             this.btnSearchClient.Text = "Search";
             this.btnSearchClient.UseVisualStyleBackColor = true;
+            this.btnSearchClient.Click += new System.EventHandler(this.btnSearchClient_Click);
             // 
             // label11
             // 
@@ -106,43 +109,67 @@
             this.label2.TabIndex = 152;
             this.label2.Text = "Year:";
             // 
-            // comboBox2
+            // cmBoxYear
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(177, 100);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(160, 36);
-            this.comboBox2.TabIndex = 151;
+            this.cmBoxYear.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxYear.FormattingEnabled = true;
+            this.cmBoxYear.Location = new System.Drawing.Point(177, 100);
+            this.cmBoxYear.Name = "cmBoxYear";
+            this.cmBoxYear.Size = new System.Drawing.Size(211, 36);
+            this.cmBoxYear.TabIndex = 151;
             // 
-            // dataGridView1
+            // dgwClientHitorial
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 170);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(853, 295);
-            this.dataGridView1.TabIndex = 153;
+            this.dgwClientHitorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwClientHitorial.Location = new System.Drawing.Point(42, 170);
+            this.dgwClientHitorial.Name = "dgwClientHitorial";
+            this.dgwClientHitorial.RowHeadersWidth = 51;
+            this.dgwClientHitorial.RowTemplate.Height = 24;
+            this.dgwClientHitorial.Size = new System.Drawing.Size(876, 329);
+            this.dgwClientHitorial.TabIndex = 153;
             // 
-            // comboBox1
+            // cmBoxClientHistory
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(177, 49);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(329, 36);
-            this.comboBox1.TabIndex = 154;
+            this.cmBoxClientHistory.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxClientHistory.FormattingEnabled = true;
+            this.cmBoxClientHistory.Location = new System.Drawing.Point(177, 49);
+            this.cmBoxClientHistory.Name = "cmBoxClientHistory";
+            this.cmBoxClientHistory.Size = new System.Drawing.Size(329, 36);
+            this.cmBoxClientHistory.TabIndex = 154;
+            // 
+            // btnShowHistorial
+            // 
+            this.btnShowHistorial.Font = new System.Drawing.Font("Nirmala UI", 12F);
+            this.btnShowHistorial.Location = new System.Drawing.Point(394, 124);
+            this.btnShowHistorial.Name = "btnShowHistorial";
+            this.btnShowHistorial.Size = new System.Drawing.Size(191, 40);
+            this.btnShowHistorial.TabIndex = 155;
+            this.btnShowHistorial.Text = "Show historial";
+            this.btnShowHistorial.UseVisualStyleBackColor = true;
+            this.btnShowHistorial.Click += new System.EventHandler(this.btnShowHistorial_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Nirmala UI", 12F);
+            this.button2.Location = new System.Drawing.Point(394, 515);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(191, 40);
+            this.button2.TabIndex = 156;
+            this.button2.Text = "Close";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ClientHistorialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 606);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnShowHistorial);
+            this.Controls.Add(this.cmBoxClientHistory);
+            this.Controls.Add(this.dgwClientHitorial);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmBoxYear);
             this.Controls.Add(this.rbtnByRFC);
             this.Controls.Add(this.rbtnByEmail);
             this.Controls.Add(this.rbtnByName);
@@ -150,7 +177,7 @@
             this.Controls.Add(this.label11);
             this.Name = "ClientHistorialForm";
             this.Text = "ClientHistorialForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwClientHitorial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,8 +191,10 @@
         private System.Windows.Forms.Button btnSearchClient;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmBoxYear;
+        private System.Windows.Forms.DataGridView dgwClientHitorial;
+        private System.Windows.Forms.ComboBox cmBoxClientHistory;
+        private System.Windows.Forms.Button btnShowHistorial;
+        private System.Windows.Forms.Button button2;
     }
 }

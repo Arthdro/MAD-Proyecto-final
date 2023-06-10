@@ -27,6 +27,8 @@ namespace MAD___PF_Hotel
         float subtotal = 0;
         float impuesto = 0;
         float total = 0;
+        DateTime Begin_Operations;
+        DateTime Current_date;
         public ReservationSystemForm()
         {
             InitializeComponent();
@@ -36,10 +38,11 @@ namespace MAD___PF_Hotel
             cmboxSearchCity.Enabled = false;
             dtpCheckIn.Enabled = false;
             dtpCheckOut.Enabled = false;
-            //noUDQuantity.Enabled = false;
             btnSaveReserv.Enabled = false;
             btnCancelOperation.Enabled = false;
+            btnCheckAvailability.Enabled = false;
             cBoxPaymentMethod.Enabled = false;
+            UpDownPeople.Enabled = false;
             cBoxPaymentMethod.DisplayMember = "Text";
             cBoxPaymentMethod.ValueMember = "Value";
 
@@ -65,31 +68,33 @@ namespace MAD___PF_Hotel
 
             Guid guid = Guid.NewGuid();
             new_reservation.Id_Reservation = guid.ToString();
-            new_reservation.Id_Client = aux_id_client;
+            new_reservation.Id_Client = int.Parse(cmboxClientInfo.SelectedValue.ToString());
             new_reservation.Id_Room = aux_id_room;
             new_reservation.Id_City = int.Parse((string)cmboxSearchCity.SelectedValue);
             new_reservation.Id_Hotel = aux_id_hotel;
             new_reservation.Check_In = dtpCheckIn.Value;
             new_reservation.Check_Out = dtpCheckOut.Value;
-            new_reservation.Room_Number = int.Parse(lblRoomNumber.Text);
+            new_reservation.People_Quantity = Convert.ToInt32(UpDownPeople.Value);
             new_reservation.Subtotal = subtotal;
             new_reservation.IVA = impuesto;
             new_reservation.Total_Amount = total;
             new_reservation.UpFront_Pay = total/2;
+            new_reservation.Type_Payment = cBoxPaymentMethod.Text;
             new_reservation.Check_In.ToString("dd/MM/yyyy");
             new_reservation.Check_Out.ToString("dd/MM/yyyy");
 
+            
             int disponibilidad = sqlConexion.CheckDisponibility(new_reservation);
 
-            if (disponibilidad == 0)
+            if (disponibilidad == 0 || DateVerification() != 0)
             {
                 int resultUser = sqlConexion.SetReservation(new_reservation, current_session);
                 this.Close();
-                MessageBox.Show("The reservation was added.");
+                MessageBox.Show("The reservation was added. The reservation code is:" + guid);
             }
             else
             {
-                MessageBox.Show("The email or password are invalid");
+                MessageBox.Show("The room is already reserved on those days" );
             }
         }
 
@@ -105,6 +110,7 @@ namespace MAD___PF_Hotel
                 string selectedValue = (string)cmboxSearchCity.SelectedValue;
                 dgvSelectHotel.DataSource = sqlConexion.GetHotels(selectedValue);
                 dgvSelectHotel.Columns["ID_HOTEL"].Visible = false;
+                dgvSelectHotel.Columns["ID_CITY"].Visible = false;
             }
             return;
         }
@@ -116,11 +122,20 @@ namespace MAD___PF_Hotel
             {
                 DataGridViewRow row = dgvSelectHotel.Rows[e.RowIndex];
                 value = row.Cells["ID_HOTEL"].Value.ToString();
+                Begin_Operations = sqlConexion.GetBeginOperations(int.Parse(value));
+                Current_date = sqlConexion.GetCurrentDate();
                 dgvSelectRoom.DataSource = sqlConexion.GetRoomTypes(value);
-                dgvSelectRoom.Columns["ID_ROOM"].Visible = false;
-
-                aux_id_hotel = int.Parse(value);
-                return;
+                if (dgvSelectRoom.DataSource == null)
+                {
+                    MessageBox.Show("Theres no rooms on this hotel.");
+                }
+                else
+                {
+                    dgvSelectRoom.Columns["ID_ROOM"].Visible = false;
+                    aux_id_hotel = int.Parse(value);
+                    return;
+                }            
+                
             }
         }
 
@@ -147,30 +162,34 @@ namespace MAD___PF_Hotel
                 lblAmountOfBeds.Text = selected_room.Bed_Quantity.ToString();
                 lblUpfrontPay.Text = "$ " + (full_amount/2).ToString("0.00");
                 cBoxPaymentMethod.Enabled = true;
-                lblRoomNumber.Text = selected_room.Room_Number.ToString();
+                UpDownPeople.Maximum = selected_room.People_Quantity;
+                UpDownPeople.Minimum = 1;
+                UpDownPeople.Enabled = true;
+                UpDownPeople.Value = selected_room.People_Quantity;
+                btnCheckAvailability.Enabled = true;
+
                 return;
             }
         }
 
         private void btnSearchClient_Click(object sender, EventArgs e)
         {
-            //SearchClient searchClientForm = new SearchClient();
-            //searchClientForm.Show();
             if (rbtnByName.Checked == true)
             {
                 string texted_client = cmboxClientInfo.Text;
-                ClientModel searched_client = new ClientModel();
-                searched_client = sqlConexion.GetClientData(texted_client, null, null);
-                if (searched_client.Id_Client == null)
+                List<ClientModel> searched_client = new List<ClientModel>();
+                searched_client = sqlConexion.GetClientData(texted_client);
+                if (searched_client.Count == 0)
                 {
                     MessageBox.Show("There´s no client with that RFC.");
                     return;
                 }
                 else
                 {
-                    cmboxClientInfo.ValueMember = searched_client.Id_Client.ToString();
-                    cmboxClientInfo.DisplayMember = searched_client.Names;
-                    aux_id_client = searched_client.Id_Client;
+                    cmboxClientInfo.DataSource = searched_client;
+                    cmboxClientInfo.ValueMember = "ID_CLIENT";
+                    cmboxClientInfo.DisplayMember = "FULL_NAME";
+                    //aux_id_client = searched_client.Id_Client;
                     cmboxSearchCity.Enabled = true;
                     dtpCheckIn.Enabled = true;
                     dtpCheckOut.Enabled = true;
@@ -185,9 +204,13 @@ namespace MAD___PF_Hotel
                 string texted_client = cmboxClientInfo.Text;
                 ClientModel searched_client = new ClientModel();
                 searched_client = sqlConexion.GetClientData(null, texted_client, null);
-                if (searched_client.Id_Client == null)
+                if (searched_client.Id_Client == 0)
                 {
                     MessageBox.Show("There´s no client with that RFC.");
+                    dtpCheckIn.Enabled = false;
+                    dtpCheckOut.Enabled = false;
+                    btnSaveReserv.Enabled = false;
+                    btnCancelOperation.Enabled = false;
                     return;
                 }
                 else
@@ -209,9 +232,13 @@ namespace MAD___PF_Hotel
                 string texted_client = cmboxClientInfo.Text;
                 ClientModel searched_client = new ClientModel();
                 searched_client = sqlConexion.GetClientData(null, null, texted_client);
-                if (searched_client.Id_Client == null)
+                if (searched_client.Id_Client == 0)
                 {
                     MessageBox.Show("There´s no client with that RFC.");
+                    dtpCheckIn.Enabled = false;
+                    dtpCheckOut.Enabled = false;
+                    btnSaveReserv.Enabled = false;
+                    btnCancelOperation.Enabled = false;
                     return;
                 }
                 else
@@ -279,6 +306,29 @@ namespace MAD___PF_Hotel
             lblTotalAmount.Text = "$ " + total.ToString("0.00");
             lblUpfrontPay.Text = "$ " + (total / 2).ToString("0.00");
             return;
+        }
+
+        private int DateVerification()
+        {
+            DateTime checkIn = dtpCheckIn.Value;
+            DateTime checkOut = dtpCheckOut.Value;
+            if (checkIn.Date < Begin_Operations.Date || checkOut.Date < Begin_Operations.Date 
+                || checkIn.Date > checkOut.Date || checkOut.Date < checkIn.Date ||
+                checkIn.Date < Current_date.Date || checkOut.Date < Current_date.Date)
+            {
+                
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+           
+        }
+
+        private void cmboxClientInfo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

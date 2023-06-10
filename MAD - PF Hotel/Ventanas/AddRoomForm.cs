@@ -16,6 +16,10 @@ namespace MAD___PF_Hotel
     {
         Conexion sqlConexion = new Conexion();
         UserModel current_session = new UserModel();
+        HotelModel selected_hotel = new HotelModel();
+        int max_room_number = 0;
+        int room_quantity_add = 0;
+        int available_add_rooms = 0;
         public AddRoomForm()
         {
             InitializeComponent();
@@ -31,6 +35,10 @@ namespace MAD___PF_Hotel
             cmboxRoomLevel.DataSource = sqlConexion.GetRoomLevels();
             cmboxRoomLevel.DisplayMember = "ROOM_LEVEL_NAME";
             cmboxRoomLevel.ValueMember = "ID_ROOMLEVEL";
+
+            NUDQuantityRooms.Minimum = 1;
+            NUDAmounPeople.Minimum = 1;
+            NUDQuantityBeds.Minimum = 1;
         }
 
         private void CRForm_Load(object sender, EventArgs e)
@@ -40,16 +48,16 @@ namespace MAD___PF_Hotel
 
         private void btnAddTypeOfRoom_Click(object sender, EventArgs e)
         {
-            HotelModel selected_hotel = new HotelModel();
+            
             RoomModel new_room = new RoomModel();
             AmenityRoomModel new_amenityroom = new AmenityRoomModel();
+            int resultRoom = 0;
 
             new_room.Room_Name = txtboxRoomName.Text;
             new_room.Id_Hotel = Blank_Space((string)cmboxHotel.SelectedValue);
             new_room.Id_BedType = Blank_Space((string)cmboxTypeBed.SelectedValue);
             new_room.People_Quantity = Convert.ToInt32(NUDAmounPeople.Value);
-            new_room.Bed_Quantity = Convert.ToInt32(NUDQuantityBeds.Value);
-            new_room.Room_Number = Convert.ToInt32(NUDQuantityRooms.Value);
+            new_room.Bed_Quantity = Convert.ToInt32(NUDQuantityBeds.Value);            
             new_room.Id_Room_Level = Blank_Space((string)cmboxRoomLevel.SelectedValue);
             new_room.Price_Night = Blank_Space_float((string)txtboxPriceNight.Text);
             new_room.Size = Blank_Space_float((string)txtboxSize.Text);
@@ -64,8 +72,6 @@ namespace MAD___PF_Hotel
             new_amenityroom.No_Smoking_Room = ValidateCheckedBox(cBoxNoSmokingRoom);
             new_amenityroom.Mini_Bar = ValidateCheckedBox(cBoxMiniBar);
 
-            selected_hotel = sqlConexion.GetHotelData(new_room.Id_Hotel);
-
             if (RoomValidation(new_room))
             {
                 MessageBox.Show("Please, fill all the text box from the form.");
@@ -76,8 +82,12 @@ namespace MAD___PF_Hotel
             }
             else
             {
-                int resultRoom = sqlConexion.SetRooms(new_room, new_amenityroom, current_session);
-
+                for (int i = 1; i <= Convert.ToInt32(NUDQuantityRooms.Value) && i <= available_add_rooms; i++)
+                {
+                    new_room.Room_Number = max_room_number + i;
+                    resultRoom = sqlConexion.SetRooms(new_room, new_amenityroom, current_session);
+                }
+                
                 if (resultRoom == 1)
                 {
                     this.Hide();
@@ -94,7 +104,7 @@ namespace MAD___PF_Hotel
         {
             if (aux_model.Room_Name == null || aux_model.Id_Hotel == 0 ||
                 aux_model.Id_BedType == 0 || aux_model.People_Quantity == 0 ||
-                aux_model.Bed_Quantity == 0 || aux_model.Room_Number == 0 || aux_model.Id_Room_Level == 0 ||
+                aux_model.Bed_Quantity == 0 || aux_model.Id_Room_Level == 0 ||
                 aux_model.Price_Night == 0 || aux_model.Size == 0)
             {
                 return true;
@@ -168,7 +178,7 @@ namespace MAD___PF_Hotel
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void txtboxRoomName_KeyPress(object sender, KeyPressEventArgs e)
@@ -194,6 +204,25 @@ namespace MAD___PF_Hotel
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void cmboxHotel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cmboxHotel.SelectedIndex;
+            if (index == 0)
+            {
+                return;
+            }
+            else
+            {
+                int id_hotel = Blank_Space((string)cmboxHotel.SelectedValue);
+                max_room_number = sqlConexion.GetHotelLastRoom(id_hotel);
+                room_quantity_add = sqlConexion.GetHotelRoomsQuantity(id_hotel);               
+                selected_hotel = sqlConexion.GetHotelData(id_hotel);
+                available_add_rooms = (selected_hotel.Number_Rooms - room_quantity_add);
+                return;
+            }
+     
         }
     }
 }

@@ -47,3 +47,7 @@ C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel
 C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.ExtendReservationForm.resources
 C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.ReportHotelOccupancy.resources
 C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.SalesReportForm.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.CancelReservation.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.AddHotelService.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.AddServicetoHotel.resources
+C:\Users\artur\Desktop\Nueva carpeta (2)\MAD - PF Hotel\obj\Debug\MAD___PF_Hotel.Ventanas.SetServiceReservForm.resources
