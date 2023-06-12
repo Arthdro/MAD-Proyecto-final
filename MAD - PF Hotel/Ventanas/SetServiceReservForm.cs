@@ -35,7 +35,7 @@ namespace MAD___PF_Hotel.Ventanas
             string reservation_value = txtboxResvervationID.Text;
 
             reservationInfo = sqlConexion.GetReservationData(reservation_value);
-            if (reservationInfo.Id_Reservation == null)
+            if (reservationInfo.Id_Reservation == null || reservationInfo.Status_Name == "Active")
             {
                 MessageBox.Show("The reservation code not match.");
             }
@@ -43,13 +43,14 @@ namespace MAD___PF_Hotel.Ventanas
             {
                 lblIDReserv.Text = reservationInfo.Id_Reservation.ToString();
                 lblClientName.Text = reservationInfo.Client_Name;
-                added_service = sqlConexion.GetServiceData(reservationInfo.Id_Hotel);
-                foreach (var item in added_service)
-                {
+                //cmboxServices.DataSource = sqlConexion.GetServiceData(reservationInfo.Id_Hotel);
+                /*foreach (var item in added_service)
+                {*/
                     cmboxServices.DisplayMember = "SERVICE_N";
                     cmboxServices.ValueMember = "ID_SERVICE";
-                    cmboxServices.DataSource = added_service;
-                }
+                    cmboxServices.DataSource = sqlConexion.GetServiceData(reservationInfo.Id_Hotel);
+                    //cmboxServices.DataSource = added_service;
+                //}
                
                 return;
             }
@@ -72,8 +73,17 @@ namespace MAD___PF_Hotel.Ventanas
             SellModel new_sell = new SellModel();
             new_sell.Service_Use = Convert.ToInt32(serviceQuantity.Value);
             new_sell.Id_Reservation = txtboxResvervationID.Text;
+            new_sell.Id_Service = Convert.ToInt32(cmboxServices.SelectedValue.ToString());
 
-
+            if (sqlConexion.SetSell(new_sell, current_session) == 1)
+            {
+                MessageBox.Show("The sell has been loaded.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Hubo un error al ingresar los datos al sistema.");
+            }
         }
 
         public void Get_Current_Session(string aux_user)

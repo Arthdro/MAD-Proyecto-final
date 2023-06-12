@@ -35,23 +35,32 @@ namespace MAD___PF_Hotel.Ventanas
             string reservation_value = txtboxResvervationID.Text;
            
             reservationInfo = sqlConexion.GetReservationData(reservation_value);
-            lblIDReserv.Text = reservationInfo.Id_Reservation.ToString();
-            lblClientName.Text = reservationInfo.Client_Name;
-            lblHotelName.Text = reservationInfo.Hotel_Name;
-            lblLocation.Text = reservationInfo.Full_City_Name;
-            lblRoomName.Text = reservationInfo.Room_Name;
-            lblRoomNumber.Text = reservationInfo.Room_Number.ToString();
-            lblBedQuantity.Text = reservationInfo.Bed_Quantity.ToString();
-            lblPeopleQuantity.Text = reservationInfo.People_Quantity.ToString();
-            lblPricePerNight.Text = reservationInfo.Price_x_night.ToString();
-            lblCheckIn.Text = reservationInfo.Check_In.ToString("dd/MM/yyyy");
-            lblCheckOut.Text = reservationInfo.Check_Out.ToString("dd/MM/yyyy");
-            lblSubtotal.Text = reservationInfo.Subtotal.ToString();
-            lblIVA.Text = reservationInfo.IVA_cost.ToString();
-            lblTotalAmount.Text = reservationInfo.Total_Amount.ToString();
-            lblReservationStatus.Text = reservationInfo.Status_Name;
-            current_reserv = reservationInfo;
-            return;
+            if (reservationInfo.Id_Reservation == null || reservationInfo.Status_Name != "Active")
+            {
+                MessageBox.Show("The reservation was not founded.");
+                return;
+            }
+            else
+            {
+                lblIDReserv.Text = reservationInfo.Id_Reservation.ToString();
+                lblClientName.Text = reservationInfo.Client_Name;
+                lblHotelName.Text = reservationInfo.Hotel_Name;
+                lblLocation.Text = reservationInfo.Full_City_Name;
+                lblRoomName.Text = reservationInfo.Room_Name;
+                lblRoomNumber.Text = reservationInfo.Room_Number.ToString();
+                lblBedQuantity.Text = reservationInfo.Bed_Quantity.ToString();
+                lblPeopleQuantity.Text = reservationInfo.People_Quantity.ToString();
+                lblPricePerNight.Text = reservationInfo.Price_x_night.ToString();
+                lblCheckIn.Text = reservationInfo.Check_In.ToString("dd/MM/yyyy");
+                lblCheckOut.Text = reservationInfo.Check_Out.ToString("dd/MM/yyyy");
+                lblSubtotal.Text = reservationInfo.Subtotal.ToString();
+                lblIVA.Text = reservationInfo.IVA_cost.ToString();
+                lblTotalAmount.Text = reservationInfo.Total_Amount.ToString();
+                lblReservationStatus.Text = reservationInfo.Status_Name;
+                current_reserv = reservationInfo;
+                return;
+            }
+            
         }
 
         private void btnCheckInRe_Click(object sender, EventArgs e)

@@ -45,10 +45,11 @@
             this.btnSMAddEmployee = new System.Windows.Forms.Button();
             this.btnEmployeeManagment = new System.Windows.Forms.Button();
             this.pnlSubMenuHotelM = new System.Windows.Forms.Panel();
-            this.btnSMAddS = new System.Windows.Forms.Button();
             this.btnSMAddToR = new System.Windows.Forms.Button();
             this.btnSubUpdateHotel = new System.Windows.Forms.Button();
             this.btnSubAddHotel = new System.Windows.Forms.Button();
+            this.btnSMUpdateRoom = new System.Windows.Forms.Button();
+            this.btnSMAddS = new System.Windows.Forms.Button();
             this.pnlSubMenuSR.SuspendLayout();
             this.pnlMainMenu.SuspendLayout();
             this.pnlSubMenuReservation.SuspendLayout();
@@ -195,7 +196,7 @@
             this.pnlSubMenuReservation.Controls.Add(this.btnCancelReservation);
             this.pnlSubMenuReservation.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuReservation.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.pnlSubMenuReservation.Location = new System.Drawing.Point(0, 795);
+            this.pnlSubMenuReservation.Location = new System.Drawing.Point(0, 831);
             this.pnlSubMenuReservation.Name = "pnlSubMenuReservation";
             this.pnlSubMenuReservation.Size = new System.Drawing.Size(179, 152);
             this.pnlSubMenuReservation.TabIndex = 9;
@@ -223,7 +224,7 @@
             this.btnReservations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReservations.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.btnReservations.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReservations.Location = new System.Drawing.Point(0, 753);
+            this.btnReservations.Location = new System.Drawing.Point(0, 789);
             this.btnReservations.Name = "btnReservations";
             this.btnReservations.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReservations.Size = new System.Drawing.Size(179, 42);
@@ -240,7 +241,7 @@
             this.pnlSubMenuEmployee.Controls.Add(this.btnSMAddEmployee);
             this.pnlSubMenuEmployee.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubMenuEmployee.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.pnlSubMenuEmployee.Location = new System.Drawing.Point(0, 609);
+            this.pnlSubMenuEmployee.Location = new System.Drawing.Point(0, 645);
             this.pnlSubMenuEmployee.Name = "pnlSubMenuEmployee";
             this.pnlSubMenuEmployee.Size = new System.Drawing.Size(179, 144);
             this.pnlSubMenuEmployee.TabIndex = 7;
@@ -284,7 +285,7 @@
             this.btnEmployeeManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployeeManagment.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.btnEmployeeManagment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEmployeeManagment.Location = new System.Drawing.Point(0, 543);
+            this.btnEmployeeManagment.Location = new System.Drawing.Point(0, 579);
             this.btnEmployeeManagment.Name = "btnEmployeeManagment";
             this.btnEmployeeManagment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmployeeManagment.Size = new System.Drawing.Size(179, 66);
@@ -298,6 +299,7 @@
             // 
             this.pnlSubMenuHotelM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.pnlSubMenuHotelM.Controls.Add(this.btnSMAddS);
+            this.pnlSubMenuHotelM.Controls.Add(this.btnSMUpdateRoom);
             this.pnlSubMenuHotelM.Controls.Add(this.btnSMAddToR);
             this.pnlSubMenuHotelM.Controls.Add(this.btnSubUpdateHotel);
             this.pnlSubMenuHotelM.Controls.Add(this.btnSubAddHotel);
@@ -305,24 +307,8 @@
             this.pnlSubMenuHotelM.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.pnlSubMenuHotelM.Location = new System.Drawing.Point(0, 397);
             this.pnlSubMenuHotelM.Name = "pnlSubMenuHotelM";
-            this.pnlSubMenuHotelM.Size = new System.Drawing.Size(179, 146);
+            this.pnlSubMenuHotelM.Size = new System.Drawing.Size(179, 182);
             this.pnlSubMenuHotelM.TabIndex = 5;
-            // 
-            // btnSMAddS
-            // 
-            this.btnSMAddS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSMAddS.FlatAppearance.BorderSize = 0;
-            this.btnSMAddS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSMAddS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSMAddS.Location = new System.Drawing.Point(0, 105);
-            this.btnSMAddS.Name = "btnSMAddS";
-            this.btnSMAddS.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnSMAddS.Size = new System.Drawing.Size(179, 35);
-            this.btnSMAddS.TabIndex = 5;
-            this.btnSMAddS.Text = "Add Service";
-            this.btnSMAddS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSMAddS.UseVisualStyleBackColor = true;
-            this.btnSMAddS.Click += new System.EventHandler(this.btnSMAddS_Click);
             // 
             // btnSMAddToR
             // 
@@ -372,6 +358,37 @@
             this.btnSubAddHotel.UseVisualStyleBackColor = true;
             this.btnSubAddHotel.Click += new System.EventHandler(this.btnSubAddHotel_Click);
             // 
+            // btnSMUpdateRoom
+            // 
+            this.btnSMUpdateRoom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSMUpdateRoom.FlatAppearance.BorderSize = 0;
+            this.btnSMUpdateRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSMUpdateRoom.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSMUpdateRoom.Location = new System.Drawing.Point(0, 105);
+            this.btnSMUpdateRoom.Name = "btnSMUpdateRoom";
+            this.btnSMUpdateRoom.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnSMUpdateRoom.Size = new System.Drawing.Size(179, 35);
+            this.btnSMUpdateRoom.TabIndex = 6;
+            this.btnSMUpdateRoom.Text = "Update room";
+            this.btnSMUpdateRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSMUpdateRoom.UseVisualStyleBackColor = true;
+            this.btnSMUpdateRoom.Click += new System.EventHandler(this.btnSMUpdateRoom_Click);
+            // 
+            // btnSMAddS
+            // 
+            this.btnSMAddS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSMAddS.FlatAppearance.BorderSize = 0;
+            this.btnSMAddS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSMAddS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSMAddS.Location = new System.Drawing.Point(0, 140);
+            this.btnSMAddS.Name = "btnSMAddS";
+            this.btnSMAddS.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnSMAddS.Size = new System.Drawing.Size(179, 35);
+            this.btnSMAddS.TabIndex = 7;
+            this.btnSMAddS.Text = "Add Service";
+            this.btnSMAddS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSMAddS.UseVisualStyleBackColor = true;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -417,5 +434,6 @@
         private System.Windows.Forms.Button btnSMAddToR;
         private System.Windows.Forms.Button btnSubUpdateHotel;
         private System.Windows.Forms.Button btnSMAddS;
+        private System.Windows.Forms.Button btnSMUpdateRoom;
     }
 }

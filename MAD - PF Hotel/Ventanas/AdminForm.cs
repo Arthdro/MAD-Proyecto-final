@@ -198,7 +198,7 @@ namespace MAD___PF_Hotel
         }
         private void btnCancelReservation_Click(object sender, EventArgs e)
         {
-             CancelReservation cancel_reservation = new CancelReservation();
+            CancelReservation cancel_reservation = new CancelReservation();
             openChildSR(cancel_reservation);
             cancel_reservation.Get_Current_Session(current_session.Email);
             hideSubmenu();
@@ -209,6 +209,14 @@ namespace MAD___PF_Hotel
             AddServicetoHotel add_service = new AddServicetoHotel();
             openChildSR(add_service);
             add_service.Get_Current_Session(current_session.Email);
+            hideSubmenu();
+        }
+
+        private void btnSMUpdateRoom_Click(object sender, EventArgs e)
+        {
+            UpdateRooms update_room_window = new UpdateRooms();
+            openChildSR(update_room_window);
+            update_room_window.Get_Current_Session(current_session.Email);
             hideSubmenu();
         }
     }

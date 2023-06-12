@@ -74,14 +74,35 @@ namespace MAD___PF_Hotel
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //if (sqlConexion.DeleteHotel())
-            //{
+            var message = "Yes or No?";
+            var title = "Hey!";
+            var result = MessageBox.Show(
+                message,                  // the message to show
+                title,                    // the title for the dialog box
+                MessageBoxButtons.YesNo,  // show two buttons: Yes and No
+                MessageBoxIcon.Question); // show a question mark icon
 
-            //}
-            //else
-            //{
-
-            //}
+            // the following can be handled as if/else statements as well
+            switch (result)
+            {
+                case DialogResult.Yes:   // Yes button pressed
+                    if (sqlConexion.DeleteClient(updated_client.Id_Client, current_session) == 1)
+                    {
+                        MessageBox.Show("El hotel fue borrado.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo completar la acción.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    break;
+                case DialogResult.No:    // No button pressed
+                    //MessageBox.Show("You pressed No!");
+                    break;
+                default:                 // Neither Yes nor No pressed (just in case)
+                    //MessageBox.Show("What did you press?");
+                    break;
+            }
         }
 
         public void Get_Current_Session(string aux_user)
@@ -232,7 +253,7 @@ namespace MAD___PF_Hotel
 
         private void txtboxFN_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -242,7 +263,7 @@ namespace MAD___PF_Hotel
 
         private void txtboxLNO_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -252,7 +273,7 @@ namespace MAD___PF_Hotel
 
         private void txtboxLNT_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -272,7 +293,7 @@ namespace MAD___PF_Hotel
 
         private void txtboxStreetClient_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -282,7 +303,7 @@ namespace MAD___PF_Hotel
 
         private void txtboxSuburbClient_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar > 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 MessageBox.Show("Solo letras.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -292,9 +313,10 @@ namespace MAD___PF_Hotel
 
         private void txtboxRFC_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 57 && e.KeyChar <= 64) ||
+                (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Formato no permitido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -302,9 +324,10 @@ namespace MAD___PF_Hotel
 
         private void txtboxHouseNClient_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 57 && e.KeyChar <= 64) ||
+               (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Solo números.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Formato no permitido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -382,6 +405,11 @@ namespace MAD___PF_Hotel
                     return;
                 }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

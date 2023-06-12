@@ -240,14 +240,36 @@ namespace MAD___PF_Hotel.Ventanas
 
         private void btnDeleteHotel_Click(object sender, EventArgs e)
         {
-            if (sqlConexion.DeleteHotel(selected_hotel.Id_Hotel, current_session) == 1)
+            var message = "Yes or No?";
+            var title = "Hey!";
+            var result = MessageBox.Show(
+                message,                  // the message to show
+                title,                    // the title for the dialog box
+                MessageBoxButtons.YesNo,  // show two buttons: Yes and No
+                MessageBoxIcon.Question); // show a question mark icon
+
+            // the following can be handled as if/else statements as well
+            switch (result)
             {
-                MessageBox.Show("El hotel fue borrado.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                case DialogResult.Yes:   // Yes button pressed
+                    if (sqlConexion.DeleteHotel(selected_hotel.Id_Hotel, current_session) == 1)
+                    {
+                        MessageBox.Show("El hotel fue borrado.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo completar la acción.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    break;
+                case DialogResult.No:    // No button pressed
+                    //MessageBox.Show("You pressed No!");
+                    break;
+                default:                 // Neither Yes nor No pressed (just in case)
+                    //MessageBox.Show("What did you press?");
+                    break;
             }
-            else
-            {
-                MessageBox.Show("No se pudo completar la acción.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

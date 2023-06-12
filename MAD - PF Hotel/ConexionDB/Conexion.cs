@@ -290,6 +290,33 @@ namespace MAD___PF_Hotel.ConexionDB
             }
         }
 
+        public int DeleteRoom(int variable, UserModel current_session)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd_c = new SqlCommand("spDeleteRoom", con);
+                cmd_c.CommandType = CommandType.StoredProcedure;
+                cmd_c.Parameters.AddWithValue("@p_id_user", current_session.Id_User);
+                cmd_c.Parameters.AddWithValue("@p_id_room", variable);
+
+                SqlDataReader dr = cmd_c.ExecuteReader();
+
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public int DeleteClient(int variable, UserModel current_session)
         {
             try
@@ -790,6 +817,42 @@ namespace MAD___PF_Hotel.ConexionDB
             }
         }
 
+        public DataTable GetRoomByHotelID(int? id_hotel)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+                SqlCommand da = new SqlCommand("spGetRoomByHotelID", con);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@p_id_hotel", id_hotel);
+                DataTable dt = new DataTable() { CaseSensitive = true };
+
+                dt.Clear();
+                dt.Columns.Add("ROOM");
+                dt.Columns.Add("ID_ROOM");
+                DataRow _ravi = dt.NewRow();
+                _ravi["ROOM"] = "--- Select ---";
+                _ravi["ID_ROOM"] = 0;
+                dt.Rows.Add(_ravi);
+
+                SqlDataReader dr = da.ExecuteReader();
+                dt.Load(dr);
+
+                return dt;
+
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public DataTable GetBedTypes()
         {
             try
@@ -909,6 +972,44 @@ namespace MAD___PF_Hotel.ConexionDB
                 }
 
                 return searched_model;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public RoomModel GetRoomData(int? id_room)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+                RoomModel searched_room = new RoomModel();
+
+                SqlCommand da = new SqlCommand("spGetRoomData", con);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@p_id_room", id_room);
+
+                SqlDataReader dr = da.ExecuteReader();
+                while (dr.Read())
+                {
+                    searched_room.Id_Room = int.Parse(dr["ID_ROOM"].ToString());
+                    searched_room.Room_Name = dr["ROOM_NAME"].ToString();
+                    searched_room.People_Quantity = int.Parse(dr["PEOPLE_QUANTITY"].ToString());
+                    searched_room.Bed_Quantity = int.Parse(dr["BED_QUANTITY"].ToString());
+                    searched_room.Room_Number = int.Parse(dr["ROOM_NUMBER"].ToString());
+                    searched_room.Price_Night = float.Parse(dr["PRICE_PER_NIGHT"].ToString());
+                    searched_room.Discount = int.Parse(dr["DISCOUNT"].ToString());
+                    searched_room.Size = float.Parse(dr["SIZE"].ToString());
+                }
+
+                return searched_room;
             }
             catch (SqlException e)
             {
@@ -1056,6 +1157,47 @@ namespace MAD___PF_Hotel.ConexionDB
                     selected_amenity.Taxi_Service = trasnsform_boolean(bool.Parse(dr["TAXI_SERVICE"].ToString()));
                 }
                 return selected_amenity;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public AmenityRoomModel GetRoomAmenity(int? aux_value)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("spGetRoomAmenity", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@p_id_room", aux_value);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                AmenityRoomModel selected_amenityroom = new AmenityRoomModel();
+                //bool aux_bool = false;
+
+                while (dr.Read())
+                {
+                    selected_amenityroom.Id_AmenityRoom = Convert.ToInt32(dr["ID_AMENITYROOM"]);
+                    selected_amenityroom.Wifi = trasnsform_boolean(bool.Parse(dr["WIFI"].ToString()));
+                    selected_amenityroom.Tv_Service = trasnsform_boolean(bool.Parse(dr["TV_SERVICE"].ToString()));
+                    selected_amenityroom.Acoustic_insolataion = trasnsform_boolean(bool.Parse(dr["ACOUSTIC_INSOLTAION"].ToString()));
+                    selected_amenityroom.Air_Coinditioning = trasnsform_boolean(bool.Parse(dr["AIR_COINDITIONING"].ToString()));
+                    selected_amenityroom.Toiletries = trasnsform_boolean(bool.Parse(dr["TOILETRIES"].ToString()));
+                    selected_amenityroom.Cofee_Machine = trasnsform_boolean(bool.Parse(dr["COFEE_MACHINE"].ToString()));
+                    selected_amenityroom.Full_Bathroom = trasnsform_boolean(bool.Parse(dr["FULL_BATHROOM"].ToString()));
+                    selected_amenityroom.Mini_Bar = trasnsform_boolean(bool.Parse(dr["MINI_BAR"].ToString()));
+                    selected_amenityroom.No_Smoking_Room = trasnsform_boolean(bool.Parse(dr["NO_SMOKING_ROOM"].ToString()));
+                }
+                return selected_amenityroom;
             }
             catch (SqlException e)
             {
@@ -1646,14 +1788,31 @@ namespace MAD___PF_Hotel.ConexionDB
             }
         }
 
-        public List<ServiceModel> GetServiceData(int parameter_1)
+        public DataTable/*List<ServiceModel>*/ GetServiceData(int parameter_1)
         {
             try
             {
                 con.ConnectionString = Connection;
                 con.Open();
 
-                List<ServiceModel> list = new List<ServiceModel>();
+                SqlCommand da = new SqlCommand("spGetServices", con);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@p_id_hotel", parameter_1);
+                DataTable dt = new DataTable() { CaseSensitive = true };
+
+                dt.Clear();
+                dt.Columns.Add("SERVICE_N");
+                dt.Columns.Add("ID_SERVICE");
+                DataRow _ravi = dt.NewRow();
+                _ravi["SERVICE_N"] = "--- Select ---";
+                _ravi["ID_SERVICE"] = 0;
+                dt.Rows.Add(_ravi);
+
+                SqlDataReader dr = da.ExecuteReader();
+                dt.Load(dr);
+
+                return dt;
+                /*List<ServiceModel> list = new List<ServiceModel>();
                 SqlCommand cmd = new SqlCommand("spGetServices", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@p_id_hotel", parameter_1);
@@ -1674,7 +1833,7 @@ namespace MAD___PF_Hotel.ConexionDB
 
                     list.Add(service);
                 }
-                return list;
+                return list;*/
             }
             catch (SqlException e)
             {
@@ -1685,6 +1844,37 @@ namespace MAD___PF_Hotel.ConexionDB
                 con.Close();
             }
             return null;
+        }
+
+        public int SetSell(SellModel new_sell, UserModel current_session)
+        {
+            try
+            {
+                con.ConnectionString = Connection;
+                con.Open();
+
+                SqlCommand cmd_c = new SqlCommand("spSetSell", con);
+                cmd_c.CommandType = CommandType.StoredProcedure;
+                cmd_c.Parameters.AddWithValue("@p_current_user", current_session.Id_User);
+
+                cmd_c.Parameters.AddWithValue("@p_id_sell", new_sell.Id_Sell);
+                cmd_c.Parameters.AddWithValue("@p_id_service", new_sell.Id_Service);
+                cmd_c.Parameters.AddWithValue("@p_service_use", new_sell.Service_Use);
+                cmd_c.Parameters.AddWithValue("@p_id_reservation", new_sell.Id_Reservation);
+
+                SqlDataReader dr = cmd_c.ExecuteReader();
+
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("The data don´t apply on this format." + e.ToString());
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

@@ -73,7 +73,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.label11.Location = new System.Drawing.Point(36, 46);
+            this.label11.Location = new System.Drawing.Point(94, 125);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 28);
             this.label11.TabIndex = 68;
@@ -82,18 +82,19 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.btnCancel.Location = new System.Drawing.Point(621, 522);
+            this.btnCancel.Location = new System.Drawing.Point(679, 601);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(133, 39);
             this.btnCancel.TabIndex = 67;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdateClient
             // 
             this.btnUpdateClient.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.btnUpdateClient.Location = new System.Drawing.Point(220, 522);
+            this.btnUpdateClient.Location = new System.Drawing.Point(278, 601);
             this.btnUpdateClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateClient.Name = "btnUpdateClient";
             this.btnUpdateClient.Size = new System.Drawing.Size(133, 39);
@@ -133,7 +134,7 @@
             this.panel1.Controls.Add(this.txtboxLNO);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtboxFN);
-            this.panel1.Location = new System.Drawing.Point(35, 100);
+            this.panel1.Location = new System.Drawing.Point(93, 179);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(896, 398);
@@ -420,7 +421,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.btnDelete.Location = new System.Drawing.Point(428, 522);
+            this.btnDelete.Location = new System.Drawing.Point(486, 601);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(133, 39);
@@ -432,7 +433,7 @@
             // btnSearchClient
             // 
             this.btnSearchClient.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.btnSearchClient.Location = new System.Drawing.Point(511, 41);
+            this.btnSearchClient.Location = new System.Drawing.Point(569, 120);
             this.btnSearchClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearchClient.Name = "btnSearchClient";
             this.btnSearchClient.Size = new System.Drawing.Size(133, 39);
@@ -445,7 +446,7 @@
             // 
             this.rbtnByRFC.AutoSize = true;
             this.rbtnByRFC.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnByRFC.Location = new System.Drawing.Point(801, 15);
+            this.rbtnByRFC.Location = new System.Drawing.Point(859, 94);
             this.rbtnByRFC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnByRFC.Name = "rbtnByRFC";
             this.rbtnByRFC.Size = new System.Drawing.Size(93, 32);
@@ -458,7 +459,7 @@
             // 
             this.rbtnByEmail.AutoSize = true;
             this.rbtnByEmail.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnByEmail.Location = new System.Drawing.Point(687, 54);
+            this.rbtnByEmail.Location = new System.Drawing.Point(745, 133);
             this.rbtnByEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnByEmail.Name = "rbtnByEmail";
             this.rbtnByEmail.Size = new System.Drawing.Size(106, 32);
@@ -471,7 +472,7 @@
             // 
             this.rbtnByName.AutoSize = true;
             this.rbtnByName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnByName.Location = new System.Drawing.Point(685, 14);
+            this.rbtnByName.Location = new System.Drawing.Point(743, 93);
             this.rbtnByName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnByName.Name = "rbtnByName";
             this.rbtnByName.Size = new System.Drawing.Size(107, 32);
@@ -484,7 +485,7 @@
             // 
             this.cmboxClient.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmboxClient.FormattingEnabled = true;
-            this.cmboxClient.Location = new System.Drawing.Point(168, 43);
+            this.cmboxClient.Location = new System.Drawing.Point(226, 122);
             this.cmboxClient.Name = "cmboxClient";
             this.cmboxClient.Size = new System.Drawing.Size(330, 36);
             this.cmboxClient.TabIndex = 145;
@@ -494,7 +495,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 606);
+            this.ClientSize = new System.Drawing.Size(1317, 808);
             this.Controls.Add(this.cmboxClient);
             this.Controls.Add(this.rbtnByRFC);
             this.Controls.Add(this.rbtnByEmail);

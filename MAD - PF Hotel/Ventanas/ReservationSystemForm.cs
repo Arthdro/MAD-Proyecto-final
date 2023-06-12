@@ -49,11 +49,6 @@ namespace MAD___PF_Hotel
             cBoxPaymentMethod.Items.Add(new { Text = "Credit Card", Value = "0" });
             cBoxPaymentMethod.Items.Add(new { Text = "Debit Card", Value = "1" });
             cBoxPaymentMethod.Items.Add(new { Text = "SPEI Transfer", Value = "2" });
-            //cmboxClientInfo.Enabled = false;
-
-            //cmboxHotel.Enabled = false;
-
-            //dgvSelectHotel.DataSource = sqlConexion.GetHotels();
         }
 
         private void CancelReservationForm_Load(object sender, EventArgs e)
@@ -189,11 +184,9 @@ namespace MAD___PF_Hotel
                     cmboxClientInfo.DataSource = searched_client;
                     cmboxClientInfo.ValueMember = "ID_CLIENT";
                     cmboxClientInfo.DisplayMember = "FULL_NAME";
-                    //aux_id_client = searched_client.Id_Client;
                     cmboxSearchCity.Enabled = true;
                     dtpCheckIn.Enabled = true;
                     dtpCheckOut.Enabled = true;
-                    //noUDQuantity.Enabled = true;
                     btnSaveReserv.Enabled = true;
                     btnCancelOperation.Enabled = true;
                     return;
@@ -221,7 +214,6 @@ namespace MAD___PF_Hotel
                     cmboxSearchCity.Enabled = true;
                     dtpCheckIn.Enabled = true;
                     dtpCheckOut.Enabled = true;
-                    //noUDQuantity.Enabled = true;
                     btnSaveReserv.Enabled = true;
                     btnCancelOperation.Enabled = true;
                     return;
@@ -267,28 +259,6 @@ namespace MAD___PF_Hotel
             current_session = sqlConexion.GetUserData(aux_user, null);
             return;
         }
-
-        //private void noUDQuantity_ValueChanged(object sender, EventArgs e)
-        //{
-        //   //// int room = Convert.ToInt32(noUDQuantity.Value);
-        //   // subtotal = aux_subtotal * room;
-        //   // impuesto = subtotal * iva;       
-        //   // total = subtotal + impuesto;
-
-        //   // lblSubtotal.Text = "$ " + subtotal;
-        //   // lblIVAprice.Text = "$ " + impuesto;
-        //   // lblTotalAmount.Text = "$ " + total;
-        //   // return;
-        //}
-
-        //private void dtpCheckOut_ValueChanged(object sender, EventArgs e)
-        //{
-        //    DateTime checkIn = dtpCheckIn.Value;
-        //    DateTime checkOut = dtpCheckOut.Value;
-        //    //TimeSpan difFechas = checkOut - checkIn;
-        //    //int días = difFechas.Days;
-
-        //}
 
         private void btnCheckAvailability_Click(object sender, EventArgs e)
         {
